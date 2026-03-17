@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiki MMCuck 4 — Guide Complet FR</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parch: #f2e2be;
+  --parch2: #e5cf9e;
+  --parch3: #c9a96e;
+  --ink: #1e1006;
+  --ink2: #3d2008;
+  --red: #8b1a1a;
+  --gold: #b8852a;
+  --gold2: #dca84a;
+  --gold3: #f0cc70;
+  --stone: #6b5a3e;
+  --bg: #120c06;
+  --bg2: #1a1208;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+body {
+  background: var(--bg);
+  font-family: 'Crimson Text', Georgia, serif;
+  color: var(--ink);
+  background-image: radial-gradient(ellipse at 30% 10%, #1e1408 0%, #0a0604 100%);
+}
+
+/* ─── HEADER ─── */
+header {
+  text-align: center;
+  padding: 56px 20px 36px;
+  background: linear-gradient(180deg, #080402 0%, var(--bg) 100%);
+  border-bottom: 2px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(184,133,42,0.1) 0%, transparent 70%);
+}
+header h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2rem,5vw,3.6rem);
+  font-weight: 900;
+  color: var(--gold3);
+  text-shadow: 0 0 40px rgba(184,133,42,0.5), 0 2px 4px rgba(0,0,0,0.9);
+  letter-spacing: 3px;
+  position: relative;
+}
+header h1 span { color: #c03030; }
+.hsub {
+  font-family:'Cinzel',serif;
+  font-size:.9rem;
+  letter-spacing:5px;
+  color: var(--parch3);
+  margin-top:10px;
+  text-transform:uppercase;
+  position:relative;
+}
+.hline {
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  margin:20px auto 0; max-width:500px; position:relative;
+}
+.hline::before,.hline::after {
+  content:''; flex:1; height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.hline span { color:var(--gold); font-size:1.2rem; }
+
+/* ─── NAV ─── */
+nav {
+  position:sticky; top:0; z-index:200;
+  background:rgba(8,4,2,.97); border-bottom:2px solid var(--gold);
+  backdrop-filter:blur(8px);
+}
+.nav-inner {
+  display:flex; overflow-x:auto; scrollbar-width:none;
+  max-width:1140px; margin:0 auto; padding:0 16px;
+}
+nav a {
+  font-family:'Cinzel',serif; font-size:.68rem; font-weight:700;
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--parch3); text-decoration:none;
+  padding:13px 14px; white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;
+  display:flex; align-items:center; gap:6px;
+}
+nav a img.nicon { width:16px; height:16px; image-rendering:pixelated; filter:brightness(0.85); }
+nav a:hover { color:var(--gold3); border-bottom-color:var(--gold); }
+
+/* ─── LAYOUT ─── */
+.wrap { max-width:1140px; margin:0 auto; padding:36px 16px; display:grid; grid-template-columns:240px 1fr; gap:28px; align-items:start; }
+
+/* ─── SIDEBAR ─── */
+.sidebar { position:sticky; top:50px; }
+.scard {
+  background:linear-gradient(160deg,var(--parch),var(--parch2));
+  border:1.5px solid var(--parch3); border-radius:3px;
+  padding:18px; margin-bottom:18px;
+  box-shadow:3px 3px 12px rgba(0,0,0,.6);
+}
+.scard h3 {
+  font-family:'Cinzel',serif; font-size:.72rem; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase; color:var(--red);
+  border-bottom:1px solid var(--parch3); padding-bottom:7px; margin-bottom:10px;
+}
+.scard ul { list-style:none; }
+.scard ul li { margin-bottom:5px; }
+.scard ul li a {
+  font-size:.92rem; color:var(--ink2); text-decoration:none;
+  display:flex; align-items:center; gap:8px; transition:color .15s;
+}
+.scard ul li a:hover { color:var(--red); }
+.stip {
+  background:linear-gradient(135deg,#0e1e30,#070f18);
+  border:1px solid #1e4060; border-radius:3px;
+  padding:14px; color:#90c8f0; font-size:.86rem; line-height:1.55;
+}
+.stip strong { color:#60b0f0; font-family:'Cinzel',serif; font-size:.75rem; display:block; margin-bottom:6px; }
+
+/* ─── SECTION ─── */
+.sec {
+  background:linear-gradient(160deg,var(--parch),var(--parch2));
+  border:1.5px solid var(--parch3); border-radius:3px;
+  padding:28px 30px; margin-bottom:24px;
+  box-shadow:3px 3px 14px rgba(0,0,0,.6);
+  position:relative; overflow:hidden;
+}
+.sec::after {
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.022'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.stitle {
+  font-family:'Cinzel Decorative',serif; font-size:1.4rem; font-weight:700;
+  color:var(--red); display:flex; align-items:center; gap:10px;
+  margin-bottom:4px;
+}
+.stitle img { width:28px; height:28px; image-rendering:pixelated; }
+.ssub {
+  font-family:'Cinzel',serif; font-size:.7rem; letter-spacing:3px;
+  color:var(--stone); text-transform:uppercase;
+  border-bottom:1px solid var(--parch3); padding-bottom:10px; margin-bottom:18px;
+}
+p { font-size:1rem; line-height:1.68; color:var(--ink); margin-bottom:12px; }
+p:last-child { margin-bottom:0; }
+h3.sh { font-family:'Cinzel',serif; font-size:.95rem; font-weight:700; color:var(--red); margin:18px 0 8px; }
+
+/* ─── ALERTS ─── */
+.al {
+  border-radius:3px; padding:12px 16px; margin:14px 0;
+  display:flex; gap:10px; align-items:flex-start;
+}
+.al img { width:20px;height:20px;image-rendering:pixelated;flex-shrink:0;margin-top:2px; }
+.al p { margin:0; font-size:.93rem; }
+.al.red { background:rgba(139,26,26,.1); border:1px solid rgba(139,26,26,.3); }
+.al.red p { color:#5a1010; }
+.al.blue { background:rgba(20,50,90,.1); border:1px solid rgba(20,50,90,.3); }
+.al.blue p { color:#1a3a5a; }
+.al.green { background:rgba(20,70,20,.1); border:1px solid rgba(20,70,20,.3); }
+.al.green p { color:#143214; }
+.al.gold { background:rgba(184,133,42,.08); border:1px solid rgba(184,133,42,.25); }
+.al.gold p { color:#5a3606; }
+
+/* ─── STEPS ─── */
+.steps { list-style:none; counter-reset:st; }
+.steps li { counter-increment:st; display:flex; gap:14px; margin-bottom:16px; align-items:flex-start; }
+.steps li::before {
+  content:counter(st);
+  font-family:'Cinzel Decorative',serif; font-size:.9rem; font-weight:900;
+  min-width:34px; height:34px; background:var(--red); color:var(--parch);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 6px rgba(139,26,26,.4); flex-shrink:0; margin-top:2px;
+}
+.steps li .sc h4 { font-family:'Cinzel',serif; font-size:.9rem; font-weight:700; color:var(--ink); margin-bottom:3px; }
+.steps li .sc p { margin:0; font-size:.93rem; }
+
+/* ─── BOSS SECTION ─── */
+.boss-list { display:flex; flex-direction:column; gap:20px; margin-top:14px; }
+.boss-card {
+  background:linear-gradient(135deg,#160a04,#0d0602);
+  border:1px solid rgba(139,26,26,.4); border-radius:4px;
+  overflow:hidden; display:grid; grid-template-columns:200px 1fr;
+}
+.boss-img {
+  position:relative; background:#0a0604; display:flex; align-items:center; justify-content:center;
+  min-height:160px; overflow:hidden;
+}
+.boss-img img { width:100%; height:100%; object-fit:cover; opacity:.9; image-rendering:auto; }
+.boss-img .boss-dim {
+  position:absolute; bottom:6px; left:6px;
+  font-family:'Cinzel',serif; font-size:.6rem; letter-spacing:1.5px; text-transform:uppercase;
+  background:rgba(0,0,0,.7); color:var(--gold2); padding:2px 8px; border-radius:2px;
+}
+.boss-body { padding:16px 20px; }
+.boss-name {
+  font-family:'Cinzel Decorative',serif; font-size:1.1rem; font-weight:700;
+  color:#e04040; margin-bottom:2px;
+}
+.boss-struct {
+  font-family:'Cinzel',serif; font-size:.7rem; letter-spacing:2px;
+  color:var(--gold2); text-transform:uppercase; margin-bottom:10px;
+}
+.boss-stats {
+  display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;
+}
+.stat-pill {
+  display:inline-flex; align-items:center; gap:5px;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+  border-radius:2px; padding:3px 10px;
+  font-family:'Cinzel',serif; font-size:.68rem; font-weight:700;
+  letter-spacing:.5px;
+}
+.stat-pill.hp { color:#f06060; border-color:rgba(200,50,50,.3); }
+.stat-pill.armor { color:#90c8f0; border-color:rgba(80,150,220,.3); }
+.stat-pill.dmg { color:#f0a040; border-color:rgba(200,130,30,.3); }
+.stat-pill.phases { color:#c090f8; border-color:rgba(160,80,240,.3); }
+.boss-desc { font-size:.88rem; color:#c0a080; line-height:1.5; margin-bottom:10px; }
+.boss-tip-line {
+  background:rgba(200,130,30,.08); border-left:3px solid var(--gold);
+  padding:7px 12px; font-size:.85rem; color:#c8a060; font-style:italic; margin-bottom:10px;
+}
+.boss-drops { }
+.drops-title {
+  font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold2); margin-bottom:8px;
+}
+.drops-grid { display:flex; flex-wrap:wrap; gap:8px; }
+
+/* ─── ITEM TOOLTIP ─── */
+.item {
+  position:relative; display:inline-flex; align-items:center; gap:6px;
+  background:rgba(20,15,10,.7); border:1px solid rgba(184,133,42,.35);
+  border-radius:2px; padding:4px 10px 4px 6px;
+  cursor:default; transition:border-color .15s;
+}
+.item:hover { border-color:var(--gold2); }
+.item img { width:20px; height:20px; image-rendering:pixelated; }
+.item span {
+  font-family:'Cinzel',serif; font-size:.72rem; font-weight:700;
+  letter-spacing:.5px; color:var(--gold3);
+}
+.item .tt {
+  display:none;
+  position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%);
+  z-index:999;
+  background:#100c08; border:1px solid var(--gold);
+  border-radius:3px; padding:10px 14px; min-width:220px; max-width:280px;
+  box-shadow:0 4px 20px rgba(0,0,0,.8);
+  pointer-events:none;
+}
+.item:hover .tt { display:block; }
+.tt-name {
+  font-family:'Cinzel',serif; font-size:.82rem; font-weight:700;
+  color:var(--gold3); border-bottom:1px solid rgba(184,133,42,.3); padding-bottom:6px; margin-bottom:6px;
+}
+.tt-type { font-size:.75rem; color:#a09080; font-style:italic; margin-bottom:6px; }
+.tt-stat { font-size:.8rem; color:#d0c0a0; margin-bottom:3px; display:flex; gap:6px; align-items:baseline; }
+.tt-stat .sval { color:#70e070; font-weight:700; }
+.tt-stat .sval.red { color:#f08080; }
+.tt-stat .sval.blue { color:#80c8f8; }
+.tt-stat .sval.purple { color:#c090f8; }
+.tt-desc { font-size:.78rem; color:#a09070; font-style:italic; margin-top:6px; border-top:1px solid rgba(184,133,42,.2); padding-top:6px; line-height:1.45; }
+.tt::after {
+  content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  border:6px solid transparent; border-top-color:var(--gold);
+}
+
+/* ─── RARITY ─── */
+.rare { display:inline-block; font-family:'Cinzel',serif; font-size:.65rem; font-weight:700; letter-spacing:1px; padding:1px 7px; border-radius:2px; text-transform:uppercase; }
+.rare.unique { background:rgba(200,130,30,.2); color:#f0b040; border:1px solid rgba(200,130,30,.4); }
+.rare.rare2 { background:rgba(80,130,220,.2); color:#90c0f8; border:1px solid rgba(80,130,220,.4); }
+.rare.legendary { background:rgba(200,60,200,.2); color:#e090f8; border:1px solid rgba(200,60,200,.4); }
+.rare.material { background:rgba(100,180,100,.2); color:#80d080; border:1px solid rgba(100,180,100,.4); }
+
+/* ─── ORIGIN CARDS ─── */
+.origin-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:12px; margin-top:14px; }
+.ocard {
+  background:linear-gradient(160deg,#160e06,#0d0805);
+  border:1px solid var(--gold); border-radius:3px; padding:14px;
+  text-align:center; transition:transform .2s,box-shadow .2s;
+}
+.ocard:hover { transform:translateY(-3px); box-shadow:0 6px 20px rgba(184,133,42,.18); }
+.ocard .oimg { width:48px; height:48px; image-rendering:pixelated; margin:0 auto 8px; display:block; }
+.ocard h4 { font-family:'Cinzel',serif; font-size:.82rem; font-weight:700; color:var(--gold3); margin-bottom:6px; }
+.ocard p { font-size:.82rem; color:#c0a870; line-height:1.45; margin:0 0 6px; }
+.ocard .pro { font-size:.75rem; color:#70c870; }
+.ocard .con { font-size:.75rem; color:#f08080; }
+
+/* ─── MAGIC CARDS ─── */
+.magic-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin-top:14px; }
+.mcard { border-radius:3px; padding:16px; text-align:center; }
+.mcard.ars { background:linear-gradient(160deg,#1a0828,#0d0414); border:1px solid #7030c0; }
+.mcard.iron { background:linear-gradient(160deg,#080e1e,#040810); border:1px solid #3060b0; }
+.mcard.bot { background:linear-gradient(160deg,#081408,#040a04); border:1px solid #309030; }
+.mcard.eid { background:linear-gradient(160deg,#180606,#0c0303); border:1px solid #902020; }
+.mcard.wiz { background:linear-gradient(160deg,#0c0a18,#080510); border:1px solid #5040a0; }
+.mcard .mimg { width:40px; height:40px; image-rendering:pixelated; margin:0 auto 10px; display:block; }
+.mcard h4 { font-family:'Cinzel',serif; font-size:.82rem; font-weight:700; margin-bottom:7px; }
+.mcard.ars h4 { color:#b070f0; } .mcard.iron h4 { color:#80b0e8; } .mcard.bot h4 { color:#70c870; } .mcard.eid h4 { color:#e07070; } .mcard.wiz h4 { color:#9888c8; }
+.mcard p { font-size:.82rem; line-height:1.45; margin:0; }
+.mcard.ars p { color:#b090e0; } .mcard.iron p { color:#8098c8; } .mcard.bot p { color:#70a870; } .mcard.eid p { color:#c08080; } .mcard.wiz p { color:#8880a8; }
+.diff { display:inline-block; font-family:'Cinzel',serif; font-size:.65rem; padding:2px 8px; border-radius:10px; font-weight:700; letter-spacing:1px; margin-top:8px; text-transform:uppercase; }
+.d-easy { background:rgba(40,130,40,.25); color:#60c060; }
+.d-med { background:rgba(170,110,20,.25); color:#d09030; }
+.d-hard { background:rgba(150,30,30,.25); color:#e05050; }
+
+/* ─── KEYBINDS ─── */
+table { width:100%; border-collapse:collapse; margin-top:12px; font-size:.93rem; }
+thead tr { background:var(--red); color:var(--parch); }
+thead th { font-family:'Cinzel',serif; font-size:.7rem; letter-spacing:2px; text-transform:uppercase; padding:9px 12px; text-align:left; }
+tbody tr:nth-child(even) { background:rgba(0,0,0,.05); }
+tbody td { padding:8px 12px; border-bottom:1px solid var(--parch3); vertical-align:top; }
+.kbd { background:var(--ink); color:var(--gold3); font-family:monospace; font-size:.83rem; padding:2px 7px; border-radius:2px; border:1px solid var(--stone); white-space:nowrap; }
+
+/* ─── PROGRESSION ─── */
+.prog-track { display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-top:14px; }
+.prog-node {
+  background:linear-gradient(135deg,#1a0e06,#0e0804);
+  border:1px solid var(--gold); border-radius:3px; padding:8px 14px;
+  font-family:'Cinzel',serif; font-size:.75rem; font-weight:700; color:var(--gold3);
+  text-align:center; min-width:120px;
+}
+.prog-node img { width:28px; height:28px; image-rendering:pixelated; display:block; margin:0 auto 5px; }
+.prog-arrow { color:var(--gold); font-size:1.4rem; flex-shrink:0; }
+
+/* ─── MOD GRID ─── */
+.mod-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; margin-top:14px; }
+.mod-c { border-radius:3px; padding:14px; border-left:3px solid var(--gold); }
+.mod-c.magic { background:linear-gradient(135deg,#180828,#0c0414); border-left-color:#8040d0; color:#c090f0; }
+.mod-c.combat { background:linear-gradient(135deg,#280808,#140404); border-left-color:#a02020; color:#e09090; }
+.mod-c.explore { background:linear-gradient(135deg,#081408,#040804); border-left-color:#309030; color:#80c080; }
+.mod-c.build { background:linear-gradient(135deg,#181008,#0c0804); border-left-color:var(--gold); color:#d0a858; }
+.mod-c.surv { background:linear-gradient(135deg,#080e18,#040810); border-left-color:#3060b0; color:#80a8d8; }
+.mod-c.dim { background:linear-gradient(135deg,#081414,#040c0c); border-left-color:#30a090; color:#70c0b8; }
+.mod-c .mt { display:inline-block; font-family:'Cinzel',serif; font-size:.62rem; letter-spacing:1px; padding:2px 7px; border-radius:2px; font-weight:700; text-transform:uppercase; margin-bottom:6px; opacity:.85; }
+.mod-c.magic .mt { background:rgba(128,64,208,.25); } .mod-c.combat .mt { background:rgba(160,32,32,.25); } .mod-c.explore .mt { background:rgba(48,144,48,.25); }
+.mod-c.build .mt { background:rgba(184,133,42,.2); color:var(--gold2); } .mod-c.surv .mt { background:rgba(48,96,176,.25); } .mod-c.dim .mt { background:rgba(48,160,144,.25); }
+.mod-c h4 { font-family:'Cinzel',serif; font-size:.82rem; font-weight:700; margin-bottom:5px; color:inherit; }
+.mod-c p { font-size:.84rem; line-height:1.45; color:inherit; opacity:.85; margin:0; }
+
+/* ─── FOOTER ─── */
+footer { text-align:center; padding:28px 20px; background:#080402; border-top:2px solid var(--gold); font-family:'Cinzel',serif; font-size:.7rem; letter-spacing:2px; color:var(--stone); text-transform:uppercase; }
+footer span { color:var(--gold2); }
+
+/* ─── BACK TO TOP ─── */
+.btt { position:fixed; bottom:20px; right:20px; background:var(--red); color:var(--parch); width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; text-decoration:none; box-shadow:0 3px 10px rgba(0,0,0,.5); transition:background .2s,transform .2s; }
+.btt:hover { background:var(--gold); transform:translateY(-3px); }
+
+@media(max-width:760px){
+  .wrap{grid-template-columns:1fr;}
+  .sidebar{position:static;}
+  .boss-card{grid-template-columns:1fr;}
+  .boss-img{min-height:180px;}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <h1><span>MMCuck</span> 4</h1>
+  <p class="hsub">Wiki Complet en Français — Forge 1.20.1</p>
+  <div class="hline"><span>⚜</span></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#debut">Débuts</a>
+    <a href="#origines">Origines</a>
+    <a href="#survie">Survie</a>
+    <a href="#magie">Magie</a>
+    <a href="#combat">Combat</a>
+    <a href="#progression">Progression</a>
+    <a href="#boss">Boss Cataclysm</a>
+    <a href="#dimensions">Dimensions</a>
+    <a href="#royaume">MineColonies</a>
+    <a href="#touches">Touches</a>
+    <a href="#mods">Mods</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<aside class="sidebar">
+  <div class="scard">
+    <h3>Sommaire</h3>
+    <ul>
+      <li><a href="#debut">Premiers pas</a></li>
+      <li><a href="#origines">Origines & Races</a></li>
+      <li><a href="#survie">Survie avancée</a></li>
+      <li><a href="#magie">Systèmes de Magie</a></li>
+      <li><a href="#combat">Combat & Armes</a></li>
+      <li><a href="#progression">Ordre de Progression</a></li>
+      <li><a href="#boss">Boss — L'Ender's Cataclysm</a></li>
+      <li><a href="#dimensions">Dimensions</a></li>
+      <li><a href="#royaume">MineColonies</a></li>
+      <li><a href="#touches">Raccourcis Clavier</a></li>
+      <li><a href="#mods">Liste des Mods</a></li>
+      <li><a href="#faq">❓ FAQ</a></li>
+    </ul>
+  </div>
+  <div class="scard">
+    <h3>Infos Serveur</h3>
+    <ul>
+      <li><a href="#">Version : Forge 1.20.1</a></li>
+      <li><a href="#">Pack : LunaPixelStudios</a></li>
+      <li><a href="#">RAM serveur : 10 Go</a></li>
+      <li><a href="#">RAM client : 6-8 Go recommandé</a></li>
+    </ul>
+  </div>
+  <div class="stip">
+    <strong>Conseil du Sage</strong>
+    Ouvrez le livre de quêtes avec la touche <strong>L</strong> dès le début. Les quêtes offrent du matériel gratuit et vous guident étape par étape dans tous les mods.
+  </div>
+</aside>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+     DEBUT
+════════════════════════════════════════════ -->
+<section class="sec" id="debut">
+  <h2 class="stitle">Premiers Pas</h2>
+  <p class="ssub">Ce qu'il faut faire en premier — Guide de démarrage</p>
+
+  <p>MMCuck 4 est un modpack RPG médiéval pour Minecraft 1.20.1. Il transforme entièrement le jeu en une aventure de fantasy : magie, donjons, boss épiques, royaumes à construire, races jouables. Le tout peut sembler écrasant au début — ce wiki est là pour vous orienter.</p>
+
+  <div class="al gold">
+    <p><strong>Premier réflexe :</strong> Appuyez sur <strong>L</strong> pour ouvrir le livre de quêtes FTB. Les quêtes sont le fil conducteur du modpack et offrent du matériel gratuit à chaque étape. Commencez par l'onglet "Débuts" ou "Starter".</p>
+  </div>
+
+  <ol class="steps">
+    <li><div class="sc"><h4>Choisir votre Origine</h4><p>Dès la première connexion, un menu vous propose de choisir votre race (Humain, Elfe, Nain, Vampire…). Ce choix est <strong>définitif</strong> sans Orb of Origin. Chaque race a des bonus et malus uniques — voir la section Origines.</p></div></li>
+    <li><div class="sc"><h4>Ouvrir le livre de quêtes</h4><p>Touche <strong>L</strong>. Commencez par les premières quêtes — elles fournissent outils, nourriture et explications pour chaque mod au fur et à mesure de votre progression.</p></div></li>
+    <li><div class="sc"><h4>Gérer la soif et la température</h4><p>Le mod <em>Survive</em> ajoute une barre de soif. Tenez une bouteille vide devant l'eau et faites clic-droit pour remplir. L'eau brute peut donner la nausée — faites-la bouillir dans un chaudron au-dessus du feu.</p></div></li>
+    <li><div class="sc"><h4>Construire un abri rapidement</h4><p>Les nuits sont très dangereuses — les monstres ont des niveaux qui s'adaptent au vôtre. Construisez un abri solide avant le coucher du soleil dès le jour 1.</p></div></li>
+    <li><div class="sc"><h4>Explorer les structures proches</h4><p>Des villages, tours, ruines et donjons sont générés partout. Cherchez un village pour vous ravitailler mais attention : certaines structures ont des gardes agressifs.</p></div></li>
+    <li><div class="sc"><h4>Choisir votre voie</h4><p>Guerrier (Combat + Passive Skill Tree), Mage (Ars Nouveau / Iron's Spells / Botania), ou Bâtisseur (MineColonies). Ces voies ne s'excluent pas mais chacune demande un investissement important.</p></div></li>
+  </ol>
+</section>
+
+<!-- ══════════════════════════════════════════
+     ORIGINES
+════════════════════════════════════════════ -->
+<section class="sec" id="origines">
+  <h2 class="stitle">Origines & Races</h2>
+  <p class="ssub">Medieval Origins Revival — Choisissez votre destin</p>
+
+  <p>Le mod <strong>Origins + Medieval Origins Revival</strong> vous fait choisir une race au démarrage. Chaque race modifie vos stats, vous donne une capacité active (touche <strong>G</strong>) et des contraintes permanentes. Le choix est définitif sauf utilisation d'un <strong>Orb of Origin</strong> (craftable, voir les quêtes).</p>
+
+  <div class="al red">
+    <p><strong>Attention :</strong> Le Vampire brûle au soleil et ne peut pas manger de nourriture normale — il doit drainer du sang. Le Pixie est incapable de porter une armure lourde. Lisez bien les malus avant de choisir, surtout en multijoueur !</p>
+  </div>
+
+  <div class="origin-grid">
+    <div class="ocard">
+      <img class="oimg" src="https://minecraft.wiki/images/Steve_skin.png" alt="Humain" onerror="this.style.display='none'">
+      <h4>Humain</h4>
+      <p>Race de base, aucune faiblesse particulière. Idéal pour les débutants.</p>
+      <p class="pro">+ Bonus d'XP léger</p>
+      <p class="con">— Aucune capacité spéciale</p>
+    </div>
+    <div class="ocard">
+      <img class="oimg" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/4c/Elven-High_Elf_Origins.png/revision/latest" alt="Elfe" onerror="this.style.display='none'">
+      <h4>Elfe</h4>
+      <p>Créature sylvestre agile, en harmonie avec la nature et les forêts.</p>
+      <p class="pro">+ Vitesse, vision nocturne</p>
+      <p class="con">— Moins de vie, faible en Nether</p>
+    </div>
+    <div class="ocard">
+      <h4>High Elf</h4>
+      <p>Elfe supérieur doté d'une affinité naturelle pour la magie.</p>
+      <p class="pro">+ Bonus mana, sorts plus puissants</p>
+      <p class="con">— Très fragile, besoin de lumière</p>
+    </div>
+    <div class="ocard">
+      <h4>Nain</h4>
+      <p>Robuste bâtisseur et mineur hors pair, chez lui sous la roche.</p>
+      <p class="pro">+ Résistance dégâts, bonus minage</p>
+      <p class="con">— Lent, claustrophobie des grands espaces</p>
+    </div>
+    <div class="ocard">
+      <h4>Vampire</h4>
+      <p>Prédateur nocturne redoutable. Puissant mais avec de lourdes contraintes.</p>
+      <p class="pro">+ Régénération au sang, invulnérable la nuit</p>
+      <p class="con">— Brûle au soleil, ne peut pas manger</p>
+    </div>
+    <div class="ocard">
+      <h4>Nécromancien</h4>
+      <p>Maître des morts, invoque des serviteurs pour se battre à sa place.</p>
+      <p class="pro">+ Invoque des morts-vivants alliés</p>
+      <p class="con">— Peu de vie, repoussé par les villages</p>
+    </div>
+    <div class="ocard">
+      <h4>Pixie</h4>
+      <p>Petite créature féérique très mobile. Pour joueurs expérimentés.</p>
+      <p class="pro">+ Vol limité, passe dans les petits espaces</p>
+      <p class="con">— Très faible, ne peut pas porter d'armure lourde</p>
+    </div>
+    <div class="ocard">
+      <h4>Banshee</h4>
+      <p>Spectre semi-incorporel, redoutable et difficile à apprivoiser.</p>
+      <p class="pro">+ Peut traverser certaines surfaces</p>
+      <p class="con">— Ne peut pas porter certaines armures</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SURVIE
+════════════════════════════════════════════ -->
+<section class="sec" id="survie">
+  <h2 class="stitle">Survie Avancée</h2>
+  <p class="ssub">Survive, Serene Seasons, Nourishment</p>
+
+  <p>MMCuck 4 rend la survie bien plus exigeante qu'en vanilla. Trois nouvelles mécaniques changent radicalement le quotidien du serveur.</p>
+
+  <h3 class="sh">Soif</h3>
+  <p>Une barre de soif s'ajoute à la faim. Pour boire : tenez une bouteille en verre vide (<em>Glass Bottle</em>) et faites clic-droit sur l'eau. <strong>L'eau de rivière brute peut donner Nausea</strong> — faites-la bouillir en plaçant un Chaudron (<em>Cauldron</em>) au-dessus de 3 blocs de feu et versez-y l'eau pour la purifier. L'hydromel (<em>Mead</em>) fabriqué avec du miel désaltère bien et donne des effets positifs.</p>
+
+  <h3 class="sh">Température</h3>
+  <p>Votre température varie selon le biome, la saison et l'heure. La nuit et dans les biomes enneigés, elle chute — portez des armures lourdes ou restez près d'un feu. Dans le Nether et les biomes désertiques, elle monte — trouvez de l'ombre, buvez. Des effets négatifs apparaissent si vous êtes trop chaud ou trop froid.</p>
+
+  <h3 class="sh">Serene Seasons — Les Saisons</h3>
+  <p>Un cycle de 4 saisons change l'apparence des biomes et affecte les cultures. En <strong>hiver</strong>, les cultures ne poussent plus — stockez des provisions avant la neige ! Au <strong>printemps et en été</strong>, la croissance est normale à rapide. L'automne donne de belles couleurs mais annonce l'hiver.</p>
+
+  <div class="al green">
+    <p><strong>Astuce :</strong> Installez-vous près d'une rivière ou d'un lac et craftez un puits avec un Chaudron dès que possible. Construisez un grenier avant l'automne pour stocker des récoltes pour tout l'hiver.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MAGIE
+════════════════════════════════════════════ -->
+<section class="sec" id="magie">
+  <h2 class="stitle">Systèmes de Magie</h2>
+  <p class="ssub">5 systèmes distincts et indépendants</p>
+
+  <p>MMCuck 4 intègre cinq systèmes de magie différents. Vous pouvez tous les apprendre, mais chacun demande un investissement sérieux. Choisissez votre voie principale et complétez avec les autres plus tard.</p>
+
+  <div class="magic-grid">
+    <div class="mcard ars">
+      <h4>Ars Nouveau</h4>
+      <p>Créez vos propres sorts en combinant des glyphes (Projectile, Zone, Soins, Vitesse…). Craftez un <strong>Spell Book</strong> et une table d'apprentissage spéciale. Le système le plus personnalisable.</p>
+      <span class="diff d-med">Difficulté Moyenne</span>
+    </div>
+    <div class="mcard iron">
+      <h4>Iron's Spells 'n Spellbooks</h4>
+      <p>Apprenez des sorts via des parchemins (<em>Spell Scrolls</em>) trouvés en exploration. Craftez un Grimoire, équipez des parchemins et lancez. Très accessible dès le début.</p>
+      <span class="diff d-easy">Difficulté Facile</span>
+    </div>
+    <div class="mcard bot">
+      <h4>Botania</h4>
+      <p>Magie florale et naturelle. Récoltez du Mana grâce aux fleurs magiques placées sur de l'herbe. Créez outils, armures et artefacts via la nature. Longue mais très puissante.</p>
+      <span class="diff d-hard">Difficulté Difficile</span>
+    </div>
+    <div class="mcard eid">
+      <h4>Eidolon: Repraised</h4>
+      <p>Magie sombre et rituelle. Réalisez des rituels avec du sang, des âmes et des symboles. Idéal pour Vampires et Nécromanciens. Sorts très puissants mais moralement douteux.</p>
+      <span class="diff d-hard">Difficulté Difficile</span>
+    </div>
+    <div class="mcard wiz">
+      <h4>Wizard's Reborn</h4>
+      <p>Voie académique du mage. Recherchez des sorts dans une bibliothèque, construisez une tour de mage et débloquez des capacités uniques via l'étude.</p>
+      <span class="diff d-med">Difficulté Moyenne</span>
+    </div>
+  </div>
+
+  <div class="al blue" style="margin-top:16px;">
+    <p><strong>Par où commencer ?</strong> Trouvez un parchemin de sort (<em>Spell Scroll</em>) dans n'importe quel donjon et craftez un Grimoire avec 3 livres + 1 lingot de fer — c'est Iron's Spells, le plus accessible. Pour Ars Nouveau, cherchez les quêtes dédiées qui vous fournissent le matériel de départ.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     COMBAT
+════════════════════════════════════════════ -->
+<section class="sec" id="combat">
+  <h2 class="stitle">Combat & Armes</h2>
+  <p class="ssub">Better Combat, Simply Swords, Apotheosis, Passive Skill Tree</p>
+
+  <p>Le combat dans MMCuck 4 est profondément remanié. Chaque type d'arme a sa propre animation, portée et style d'attaque grâce au mod <strong>Better Combat</strong>. Les mobs ont des niveaux qui s'adaptent à vos points Passive Skill Tree.</p>
+
+  <h3 class="sh">Passive Skill Tree (Touche K)</h3>
+  <p>C'est votre système de progression RPG. En tuant des ennemis et accomplissant des quêtes vous gagnez des <strong>points de compétence</strong>. Dépensez-les dans l'arbre pour améliorer : Attaque, Défense, Vitesse, Mana, Points de vie, Stamina. Des <strong>Gemmes</strong> (<em>Gems</em>) droppent des minerais — socketez-les dans vos armures et armes via l'interface Passive Skill Tree pour des bonus supplémentaires.</p>
+
+  <div class="al red">
+    <p><strong>Niveaux des ennemis :</strong> Les monstres autour de vous ont un niveau basé sur la <em>moyenne</em> de vos points Passive Skill Tree. Plus vous progressez, plus les monstres locaux deviennent forts. En multijoueur, les monstres sont basés sur la moyenne de tous les joueurs proches — coordonnez-vous !</p>
+  </div>
+
+  <h3 class="sh">Apotheosis — Enchantements Avancés</h3>
+  <p>Apotheosis remplace le système d'enchantement vanilla. Les équipements ont des <strong>raretés</strong> (Commun, Rare, Épique, Légendaire) et des <strong>affixes</strong> aléatoires. Les objets légendaires ont des stats très supérieures au Netherite vanilla. Craftez une <em>Reforging Table</em> pour relancer les affixes d'un objet.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PROGRESSION
+════════════════════════════════════════════ -->
+<section class="sec" id="progression">
+  <h2 class="stitle">Ordre de Progression</h2>
+  <p class="ssub">L_Ender's Cataclysm — Ordre recommandé des boss</p>
+
+  <p>Les boss de <strong>L'Ender's Cataclysm</strong> peuvent être affrontés dans n'importe quel ordre, mais voici la progression recommandée du mod, du plus accessible au plus difficile. Chaque boss débloque des matériaux pour le suivant.</p>
+
+  <div class="prog-track">
+    <div class="prog-node">Netherite Monstrosity<br><small style="color:var(--gold2);font-size:.65rem;">Nether — Soul Forge</small></div>
+    <div class="prog-arrow">→</div>
+    <div class="prog-node">Ender Guardian<br><small style="color:var(--gold2);font-size:.65rem;">End — Ruined Citadel</small></div>
+    <div class="prog-arrow">→</div>
+    <div class="prog-node">Harbinger<br><small style="color:var(--gold2);font-size:.65rem;">Overworld — Ancient Factory</small></div>
+    <div class="prog-arrow">→</div>
+    <div class="prog-node">Ancient Remnant<br><small style="color:var(--gold2);font-size:.65rem;">Overworld — Cursed Pyramid</small></div>
+    <div class="prog-arrow">→</div>
+    <div class="prog-node">Leviathan<br><small style="color:var(--gold2);font-size:.65rem;">Overworld — Sunken City</small></div>
+    <div class="prog-arrow">→</div>
+    <div class="prog-node">Scylla<br><small style="color:var(--gold2);font-size:.65rem;">Overworld — Acropolis</small></div>
+    <div class="prog-arrow">→</div>
+    <div class="prog-node">Maledictus<br><small style="color:var(--gold2);font-size:.65rem;">Overworld — Frosted Prison</small></div>
+    <div class="prog-arrow">→</div>
+    <div class="prog-node" style="border-color:#e04040;color:#f06060;">Ignis<br><small style="color:#c04040;font-size:.65rem;">Nether — Burning Arena</small></div>
+  </div>
+
+  <div class="al gold" style="margin-top:16px;">
+    <p><strong>Challenge Orbs :</strong> Ces objets craftés avec des matériaux end-game permettent de faire réapparaître un boss ou une structure déjà vaincue. Disponibles pour tous les boss Cataclysm, EEEAB's Mobs, Mowzie's Mobs, Dead King (Iron's Spellbooks), et When Dungeons Arise. Ne fonctionnent pas sur les chunks réclamés par MineColonies.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BOSS CATACLYSM
+════════════════════════════════════════════ -->
+<section class="sec" id="boss">
+  <h2 class="stitle">Boss — L'Ender's Cataclysm</h2>
+  <p class="ssub">8 boss majeurs avec stats, stratégies et drops — passez la souris sur les items</p>
+
+  <div class="boss-list">
+
+    <!-- NETHERITE MONSTROSITY -->
+    <div class="boss-card">
+      <div class="boss-img">
+        <img src="https://www.minecraft-guides.com/wp-content/uploads/2024/08/SoulForge_NetheriteMonstrosity.png" alt="Netherite Monstrosity">
+        <span class="boss-dim">Nether</span>
+      </div>
+      <div class="boss-body">
+        <div class="boss-name">Netherite Monstrosity</div>
+        <div class="boss-struct">Soul Forge — Nether (tous biomes)</div>
+        <div class="boss-stats">
+          <span class="stat-pill hp">600 HP</span>
+          <span class="stat-pill armor">12 Armure</span>
+          <span class="stat-pill dmg">15+ dégâts</span>
+          <span class="stat-pill phases">2 Phases</span>
+        </div>
+        <p class="boss-desc">Golem colossal de Nétherite et lave. <strong>Premier boss recommandé</strong>. Se réveille automatiquement quand vous approchez. Attaque au corps à corps avec des slams dévastateurs, tire des bombes de lave en distance, et <strong>aspire la lave pour se soigner</strong> — détruisez la lave au sol pour l'empêcher de récupérer ! À 33% de vie, il entre en rage et accélère toutes ses attaques.</p>
+        <div class="boss-tip-line">Portez une armure en Diamant/Netherite enchantée Protection IV. Un Bouclier est essentiel pour bloquer les bombes de lave. Potion de Résistance au Feu obligatoire.</div>
+        <div class="boss-drops">
+          <div class="drops-title">Drops garantis</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Infernal Forge</span>
+              <span class="rare unique">Unique</span>
+              <div class="tt">
+                <div class="tt-name">Infernal Forge</div>
+                <div class="tt-type">Pioche — Unique</div>
+                <div class="tt-stat">Dégâts : <span class="sval">9</span></div>
+                <div class="tt-stat">Vitesse minage : <span class="sval">très rapide</span></div>
+                <div class="tt-stat">Effets : <span class="sval purple">Dégâts de zone en minant</span></div>
+                <div class="tt-desc">Pioche forgée dans les flammes du Nether. Peut être fusionnée avec un Void Core dans un Mechanical Fusion Anvil pour créer la Void Forge, encore plus puissante.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Monstrous Horn</span>
+              <span class="rare material">Matériau</span>
+              <div class="tt">
+                <div class="tt-name">Monstrous Horn</div>
+                <div class="tt-type">Matériau de craft</div>
+                <div class="tt-stat">Utilisation : <span class="sval blue">Craft Monstrous Helm</span></div>
+                <div class="tt-desc">Corne arrachée au Monstrosity. Nécessaire pour fabriquer le casque Monstrous Helm qui absorbe les dégâts de chute et les explosions.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Lava Power Cell</span>
+              <span class="rare rare2">Rare</span>
+              <div class="tt">
+                <div class="tt-name">Lava Power Cell</div>
+                <div class="tt-type">Objet spécial</div>
+                <div class="tt-stat">Utilisation : <span class="sval purple">Apprivoiser la Ministrosity</span></div>
+                <div class="tt-desc">Nourrit le petit compagnon Netherite Ministrosity caché derrière la cascade de lave dans la Soul Forge. La Ministrosity apprivoisée peut être placée pour stocker des objets.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HARBINGER -->
+    <div class="boss-card">
+      <div class="boss-img">
+        <img src="https://www.minecraft-guides.com/wp-content/uploads/2023/03/Harbinger.jpg" alt="Harbinger">
+        <span class="boss-dim">Overworld</span>
+      </div>
+      <div class="boss-body">
+        <div class="boss-name">The Harbinger</div>
+        <div class="boss-struct">Ancient Factory — Overworld (souterrain)</div>
+        <div class="boss-stats">
+          <span class="stat-pill hp">HP élevés</span>
+          <span class="stat-pill armor">Armure solide</span>
+          <span class="stat-pill dmg">Missiles + Laser</span>
+          <span class="stat-pill phases">2 Phases</span>
+        </div>
+        <p class="boss-desc">Boss mécanique inspiré du Wither. Dormant dans l'usine — <strong>insérez une Nether Star</strong> dans sa poitrine pour le réveiller. Tire des missiles à guidage (<em>Homing Missiles</em>), active un énorme laser mortel, charge à travers le joueur. À mi-vie, devient <strong>immunisé aux flèches</strong>. Utilisez les blocs EMP dispersés dans l'arène en les activant avec de la Redstone quand le laser se charge — cela le désactive temporairement.</p>
+        <div class="boss-tip-line">Localisez l'usine avec un Eye of Mech (crafté : Ender Eye + 4 Iron Ingots + 4 Redstone Blocks). Activez les EMP en phase 2 pour interrompre le laser. Portez des bottes de haute mobilité.</div>
+        <div class="boss-drops">
+          <div class="drops-title">Drops garantis</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Witherite Block</span>
+              <span class="rare material">Matériau clé</span>
+              <div class="tt">
+                <div class="tt-name">Witherite Block</div>
+                <div class="tt-type">Bloc — Matériau craft</div>
+                <div class="tt-stat">Se décompose en : <span class="sval">9 Witherite Ingots</span></div>
+                <div class="tt-desc">Matériau le plus important du Harbinger. Utilisé pour crafter le Mechanical Fusion Anvil (6 Ingots + 1 Anvil + 2 Redstone Blocks) qui permet de fusionner les armes boss pour créer des versions plus puissantes.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Meat Shredder</span>
+              <span class="rare unique">Crafté</span>
+              <div class="tt">
+                <div class="tt-name">Meat Shredder</div>
+                <div class="tt-type">Arme corps-à-corps — Clic droit</div>
+                <div class="tt-stat">Dégâts clic droit : <span class="sval">10/sec (ignore iframes)</span></div>
+                <div class="tt-stat">Effets : <span class="sval red">Ralentit le porteur</span></div>
+                <div class="tt-desc">Scie rotative utilisée par le Prowler. Le clic-droit active la scie en continu — 1 dégât par tick, ignore les frames d'invincibilité, très efficace sur les boss immobiles. Craftée avec 2 Witherite Ingots + 2 Redstone + 1 Iron Block.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Wither Assault Shoulder</span>
+              <span class="rare unique">Crafté</span>
+              <div class="tt">
+                <div class="tt-name">Wither Assault Shoulder Weapon</div>
+                <div class="tt-type">Arme d'épaule — 2 modes</div>
+                <div class="tt-stat">Mode normal : <span class="sval purple">Missiles Wither guidés</span></div>
+                <div class="tt-stat">Mode accroupi : <span class="sval red">Howitzer (zone continue)</span></div>
+                <div class="tt-desc">Lance des missiles infligant l'effet Wither. En s'accroupissant, tire un obus qui crée une zone de dégâts durables là où il atterrit. Peut être améliorée en Void Assault avec un Void Core dans le Mechanical Fusion Anvil.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Laser Gatling</span>
+              <span class="rare unique">Crafté</span>
+              <div class="tt">
+                <div class="tt-name">Laser Gatling</div>
+                <div class="tt-type">Arme à distance — Rafale rapide</div>
+                <div class="tt-stat">Dégâts : <span class="sval">rapides, faibles individuellement</span></div>
+                <div class="tt-stat">DPS total : <span class="sval red">très élevé</span></div>
+                <div class="tt-desc">Mitrailleuse laser qui tire en rafale. Idéal pour détruire rapidement les points de vie d'un boss. Crafté avec des Witherite Ingots.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IGNIS -->
+    <div class="boss-card">
+      <div class="boss-img">
+        <img src="https://www.minecraft-guides.com/wp-content/uploads/2024/08/Ignis-1.png" alt="Ignis">
+        <span class="boss-dim">Nether</span>
+      </div>
+      <div class="boss-body">
+        <div class="boss-name">Ignis</div>
+        <div class="boss-struct">Burning Arena — Nether Wastes (arène au sommet)</div>
+        <div class="boss-stats">
+          <span class="stat-pill hp">450 HP</span>
+          <span class="stat-pill armor">10 Armure</span>
+          <span class="stat-pill dmg">14+5% PV max</span>
+          <span class="stat-pill phases">3 Phases</span>
+        </div>
+        <p class="boss-desc">Chevalier de feu armé d'une épée et d'un bouclier. Boss le plus difficile du mod. Pour le invoquer : tuez les Ignited Revenants dans l'arène pour obtenir des <em>Burning Ashes</em>, puis placez-les sur l'Autel du Feu au sommet. Attaque avec des slams d'épée, des ondes de choc et un bouclier qui bloque. En phase 2, il devient glacé (froid au lieu de feu). L'effet <em>Blazing Brand</em> réduit votre armure de 20% par stack (max 5 stacks = armure à zéro).</p>
+        <div class="boss-tip-line">Brisez son bouclier avec une hache critique (axe critical hit). Restez mobiles pour éviter les ondes de choc. Apportez des Golden Apples et de la nourriture régénérante — les dégâts pourcentuels sont dévastateurs sur des HP bas.</div>
+        <div class="boss-drops">
+          <div class="drops-title">Drops garantis</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Ignitium Ingot (x3)</span>
+              <span class="rare material">Matériau clé</span>
+              <div class="tt">
+                <div class="tt-name">Ignitium Ingot</div>
+                <div class="tt-type">Lingot — Matériau rare</div>
+                <div class="tt-stat">Armure complète : <span class="sval">28 Armure</span></div>
+                <div class="tt-stat">Toughness : <span class="sval">16</span></div>
+                <div class="tt-stat">Knockback Resist : <span class="sval">6</span></div>
+                <div class="tt-desc">Matériau issu d'Ignis. Permet de crafter l'Ignitium Armor en combinant avec une armure Netherite dans une Smithing Table (avec template). Surpasse le Netherite vanilla. Nécessite 4 lingots pour l'armure complète — vous devrez refaire Ignis plusieurs fois.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Incinerator</span>
+              <span class="rare legendary">Légendaire</span>
+              <div class="tt">
+                <div class="tt-name">Incinerator</div>
+                <div class="tt-type">Épée — L'épée d'Ignis</div>
+                <div class="tt-stat">Dégâts : <span class="sval red">très élevés</span></div>
+                <div class="tt-stat">Effet : <span class="sval red">Blazing Brand (arm. -20%/stack)</span></div>
+                <div class="tt-stat">Lifesteal : <span class="sval">oui, basé sur Brand stacks</span></div>
+                <div class="tt-desc">L'épée d'Ignis elle-même. Applique Blazing Brand (réduit l'armure de la cible de 20% par stack jusqu'à 5). Les coups consécutifs augmentent le stack. Le porteur récupère de la vie proportionnellement au niveau du Brand.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Bulwark of the Flame</span>
+              <span class="rare legendary">Légendaire</span>
+              <div class="tt">
+                <div class="tt-name">Bulwark of the Flame</div>
+                <div class="tt-type">Bouclier — Le bouclier d'Ignis</div>
+                <div class="tt-stat">Défense : <span class="sval blue">Très haute</span></div>
+                <div class="tt-stat">Fusion possible : <span class="sval purple">+ Gauntlet of Guard</span></div>
+                <div class="tt-desc">Le bouclier de feu d'Ignis. Peut être fusionné avec le Gauntlet of Guard (drop de l'Ender Guardian) dans le Mechanical Fusion Anvil pour créer le Gauntlet of Bulwark, combinant les propriétés des deux.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Blazing Grips</span>
+              <span class="rare rare2">Rare</span>
+              <div class="tt">
+                <div class="tt-name">Blazing Grips</div>
+                <div class="tt-type">Gants spéciaux</div>
+                <div class="tt-stat">Effet : <span class="sval red">Attaques de feu améliorées</span></div>
+                <div class="tt-desc">Gantelet de l'arène. Améliore les attaques de feu du porteur et ajoute des effets de combustion aux attaques corps-à-corps.</div>
+              </div>
+            </div>
+          </div>
+          <div class="drops-title" style="margin-top:10px;">Armure craftable (4 lingots)</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Ignitium Helmet</span>
+              <span class="rare legendary">Légendaire</span>
+              <div class="tt">
+                <div class="tt-name">Ignitium Helmet</div>
+                <div class="tt-type">Casque — Indestructible</div>
+                <div class="tt-stat">Armure : <span class="sval">5</span></div>
+                <div class="tt-stat">Capacité : <span class="sval purple">Lava Vision (voit dans la lave)</span></div>
+                <div class="tt-stat">Passif : <span class="sval green">Blazes et Magma Cubes neutres</span></div>
+                <div class="tt-desc">Casque forgé dans l'Ignitium. Vision dans la lave, les Blazes et Magma Cubes deviennent neutres au porteur. Indestructible et enchantable.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Ignitium Chestplate</span>
+              <span class="rare legendary">Légendaire</span>
+              <div class="tt">
+                <div class="tt-name">Ignitium Chestplate</div>
+                <div class="tt-type">Plastron — Fusionnable avec Elytra</div>
+                <div class="tt-stat">Armure : <span class="sval">8</span></div>
+                <div class="tt-stat">Fusion : <span class="sval purple">+ Elytra → Ignitium Elytra</span></div>
+                <div class="tt-desc">Peut être fusionné avec une Elytra dans le Mechanical Fusion Anvil pour créer l'Ignition Aerial Chestplate qui combine vol ET protection maximale. Indestructible.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Ignitium Leggings</span>
+              <span class="rare legendary">Légendaire</span>
+              <div class="tt">
+                <div class="tt-name">Ignitium Leggings</div>
+                <div class="tt-type">Jambières — Indestructibles</div>
+                <div class="tt-stat">Armure : <span class="sval">6</span></div>
+                <div class="tt-stat">Passif : <span class="sval red">Enflamme les attaquants</span></div>
+                <div class="tt-desc">Les attaquants qui frappent le porteur reçoivent Blazing Brand. Indestructibles et enchantables.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Ignitium Boots</span>
+              <span class="rare legendary">Légendaire</span>
+              <div class="tt">
+                <div class="tt-name">Ignitium Boots</div>
+                <div class="tt-type">Bottes — Indestructibles</div>
+                <div class="tt-stat">Armure : <span class="sval">3</span></div>
+                <div class="tt-stat">Passif : <span class="sval red">Marcher sur la lave</span></div>
+                <div class="tt-desc">Le porteur peut marcher sur la lave sans dégâts. Indestructibles et enchantables. Set complet = 28 armure, 16 toughness, 6 knockback resistance (supérieur au Netherite).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANCIENT REMNANT -->
+    <div class="boss-card">
+      <div class="boss-img">
+        <img src="https://www.minecraft-guides.com/wp-content/uploads/2024/08/BOSS_AncientRemnant-1024x576.png" alt="Ancient Remnant">
+        <span class="boss-dim">Overworld</span>
+      </div>
+      <div class="boss-body">
+        <div class="boss-name">Ancient Remnant</div>
+        <div class="boss-struct">Cursed Pyramid — Désert (Overworld)</div>
+        <div class="boss-stats">
+          <span class="stat-pill hp">HP moyens</span>
+          <span class="stat-pill armor">12 Armure</span>
+          <span class="stat-pill dmg">10–14 mêlée</span>
+          <span class="stat-pill phases">Rage gauge</span>
+        </div>
+        <p class="boss-desc">Dinosaure squelettique géant endormi dans les profondeurs de la Pyramide Maudite. Pour l'éveiller : trouvez le <em>Desert Necklace</em> dans le Suspicious Sand de la pyramide, puis utilisez-le sur sa carcasse. Attaque avec gravité et earthquakes. Possède un <strong>compteur de rage</strong> qui augmente les dégâts avec l'accumulation. Les Suspicious Sand de la pyramide contiennent de nombreux artefacts précieux — explorez bien avant d'activer le boss.</p>
+        <div class="boss-tip-line">Cherchez le Desert Necklace dans le Suspicious Sand (fouilles avec brushes). Évitez de rester immobile — ses Void Runes infligent 7 dégâts/sec. Tuez d'abord les Kobolediators (mini-boss portant des épées) qui se trouvent dans les couloirs.</div>
+        <div class="boss-drops">
+          <div class="drops-title">Drops garantis</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Ancient Metal Ingot</span>
+              <span class="rare material">Matériau</span>
+              <div class="tt">
+                <div class="tt-name">Ancient Metal Ingot</div>
+                <div class="tt-type">Lingot — Matériau craft</div>
+                <div class="tt-desc">Métal antique utilisé pour crafter les armes du désert. No trait spécial mais très robuste. Utilisé pour diverses recettes de craft du mod.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Sandstorm in a Bottle</span>
+              <span class="rare unique">Unique</span>
+              <div class="tt">
+                <div class="tt-name">Sandstorm in a Bottle</div>
+                <div class="tt-type">Artefact — Capacité active</div>
+                <div class="tt-stat">Effet : <span class="sval purple">Tempête de sable autour du joueur</span></div>
+                <div class="tt-desc">Crée une tempête de sable infligeant des dégâts aux ennemis proches. Peut être combiné avec le Cursed Bow dans le Mechanical Fusion Anvil pour créer la Wrath of the Desert.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Remnant Skull</span>
+              <span class="rare rare2">Unique</span>
+              <div class="tt">
+                <div class="tt-name">Remnant Skull</div>
+                <div class="tt-type">Objet spécial — Apprivoisement</div>
+                <div class="tt-stat">Utilisation : <span class="sval green">Apprivoiser un Modern Remnant</span></div>
+                <div class="tt-desc">Utilisez ce crâne sur un Modern Remnant (dinosaure plus petit présent dans la pyramide) pour l'apprivoiser comme compagnon. Il vous suit et attaque vos ennemis.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVIATHAN -->
+    <div class="boss-card">
+      <div class="boss-img">
+        <img src="https://www.minecraft-guides.com/wp-content/uploads/2024/08/Leviathan.png" alt="Leviathan">
+        <span class="boss-dim">Overworld — Océan</span>
+      </div>
+      <div class="boss-body">
+        <div class="boss-name">The Leviathan</div>
+        <div class="boss-struct">Sunken City — Océan Profond (Overworld)</div>
+        <div class="boss-stats">
+          <span class="stat-pill hp">HP très élevés</span>
+          <span class="stat-pill armor">Armure épaisse</span>
+          <span class="stat-pill dmg">Dégâts en zone</span>
+          <span class="stat-pill phases">Multi-phases</span>
+        </div>
+        <p class="boss-desc">Monstre marin colossal dans les profondeurs de l'océan. Combat entièrement sous l'eau. Pour l'invoquer : préparez un <em>Abyssal Sacrifice</em> (craftable avec un <em>Athame</em> droppe par les Deepling Warlock de la ville) et placez-le sur l'autel de la ville. Inflige les effets <em>Darkness</em>, <em>Abyssal Fear</em> et <em>Abyssal Burn</em> — la <strong>Blessed Amethyst Crab Meat</strong> (viande de crabe bénie sur l'Autel d'Améthyste de la ville) est le contre obligatoire.</p>
+        <div class="boss-tip-line">La mobilité sous l'eau est CRUCIALE. Enchantez vos bottes Depth Strider III et vos tridents Riptide III avant de tenter. Water Breathing + Night Vision potions obligatoires. Mangez la Blessed Amethyst Crab Meat avant le combat pour immuniser contre ses debuffs.</div>
+        <div class="boss-drops">
+          <div class="drops-title">Drops garantis</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Tidal Claws</span>
+              <span class="rare legendary">Légendaire</span>
+              <div class="tt">
+                <div class="tt-name">Tidal Claws</div>
+                <div class="tt-type">Arme spéciale — Combat aquatique</div>
+                <div class="tt-stat">Dégâts : <span class="sval red">très élevés sous l'eau</span></div>
+                <div class="tt-stat">Bonus eau : <span class="sval blue">Dégâts amplifiés</span></div>
+                <div class="tt-desc">Griffes du Leviathan. Plus puissantes sous l'eau — parfaites pour explorer les donjons aquatiques et affronter les boss des océans.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Abyssal Egg</span>
+              <span class="rare unique">Unique</span>
+              <div class="tt">
+                <div class="tt-name">Abyssal Egg</div>
+                <div class="tt-type">Objet spécial</div>
+                <div class="tt-stat">Contient : <span class="sval purple">Baby Leviathan</span></div>
+                <div class="tt-desc">Un oeuf contenant un bébé Léviathan qui peut être apprivoisé comme compagnon. Il vous suit et combat à vos côtés dans l'eau.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCYLLA -->
+    <div class="boss-card">
+      <div class="boss-img">
+        <img src="https://www.minecraft-guides.com/wp-content/uploads/2024/08/Leviathan.png" alt="Scylla" onerror="this.src='https://www.minecraft-guides.com/wp-content/uploads/2024/08/BabyLeviathan.png'">
+        <span class="boss-dim">Overworld — Océan</span>
+      </div>
+      <div class="boss-body">
+        <div class="boss-name">Scylla, Storm Empress</div>
+        <div class="boss-struct">Acropolis — Océan Profond (Overworld)</div>
+        <div class="boss-stats">
+          <span class="stat-pill hp">390 HP</span>
+          <span class="stat-pill armor">12 Armure</span>
+          <span class="stat-pill dmg">Électrique (ignore armure)</span>
+          <span class="stat-pill phases">3 Phases</span>
+        </div>
+        <p class="boss-desc">Impératrice des tempêtes armée d'une <strong>ancre géante</strong>. Localisez l'Acropolis avec un <em>Eye of Storm</em> dans l'océan. Pour la convoquer : montez jusqu'à sa chambre et faites clic-droit sur l'ancre centrale. Son attaque principale est l'électrocution. L'effet <em>Wetness</em> (mouillé) amplifie tous ses dégâts électriques et peut vous tuer instantanément même en Netherite quand stacké à 5. <strong>Ses éclairs ignorent la réduction d'armure de l'enchantement Protection.</strong></p>
+        <div class="boss-tip-line">Bloquez ses vagues avec un bouclier pour éviter le stack de Wetness. Attaquez en continu — elle est plus dangereuse quand elle a le temps d'accumuler ses attaques. Évitez d'être dans l'eau pendant le combat (amplification Wetness).</div>
+        <div class="boss-drops">
+          <div class="drops-title">Drops garantis</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Essence of the Storm (3-4)</span>
+              <span class="rare material">Matériau</span>
+              <div class="tt">
+                <div class="tt-name">Essence of the Storm</div>
+                <div class="tt-type">Matériau craft — Rare</div>
+                <div class="tt-stat">Utilisations : <span class="sval blue">Astrape, Scylla's Spear, Ceraunus</span></div>
+                <div class="tt-desc">Essence d'orage distillée de Scylla. Composant principal pour crafter ses armes signature. Combiné avec du Lacrima pour forger l'Astrape (lance-foudre) et le Ceraunus (ancre de Scylla).</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Lacrima (8-16)</span>
+              <span class="rare material">Matériau</span>
+              <div class="tt">
+                <div class="tt-name">Lacrima</div>
+                <div class="tt-type">Matériau craft</div>
+                <div class="tt-stat">Quantité drop : <span class="sval">8 à 16</span></div>
+                <div class="tt-desc">Larmes cristallisées de Scylla. Combinées avec l'Essence of the Storm pour crafter toutes les armes de Scylla.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Astrape</span>
+              <span class="rare legendary">Crafté</span>
+              <div class="tt">
+                <div class="tt-name">Astrape</div>
+                <div class="tt-type">Lance-foudre — Arme de Scylla</div>
+                <div class="tt-stat">Attaque : <span class="sval purple">Lance des éclairs à distance</span></div>
+                <div class="tt-stat">Spécial : <span class="sval blue">Ignore réduction armure</span></div>
+                <div class="tt-desc">Lance les éclairs-spears de Scylla. Les éclairs ignorent l'enchantement Protection comme les attaques de Scylla. Craftée avec Essence of the Storm + Lacrima.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MALEDICTUS -->
+    <div class="boss-card">
+      <div class="boss-img">
+        <img src="https://www.minecraft-guides.com/wp-content/uploads/2025/07/FEATURED_Maledictus-1024x576.png" alt="Maledictus">
+        <span class="boss-dim">Overworld — Neige</span>
+      </div>
+      <div class="boss-body">
+        <div class="boss-name">Maledictus</div>
+        <div class="boss-struct">Frosted Prison — Biomes enneigés (Overworld)</div>
+        <div class="boss-stats">
+          <span class="stat-pill hp">HP élevés</span>
+          <span class="stat-pill armor">12 Armure</span>
+          <span class="stat-pill dmg">Multi-armes</span>
+          <span class="stat-pill phases">Rage gauge</span>
+        </div>
+        <p class="boss-desc">Général fantôme de la prison gelée. Combat avec plusieurs armes en alternance. Possède une <strong>jauge de rage</strong> qui augmente ses dégâts — plus vous laissez passer de temps sans dégâts, plus il devient dangereux. Localisez la prison avec un <em>Eye of Curse</em>. L'intérieur est rempli de Draugrs armés d'armes en <em>Black Steel</em> et de mini-boss Aptrgangr (géants à la hache).</p>
+        <div class="boss-tip-line">Attaquez sans relâche pour empêcher sa jauge de rage de monter trop haut. Les Aptrgangr sont très dangereux — éliminez-les avant d'activer Maledictus. Portez armure Netherite enchantée et prenez des potions de soin.</div>
+        <div class="boss-drops">
+          <div class="drops-title">Drops garantis — Matériaux Cursium</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Cursium Ingot</span>
+              <span class="rare material">Matériau clé</span>
+              <div class="tt">
+                <div class="tt-name">Cursium Ingot</div>
+                <div class="tt-type">Lingot — Matériau craft</div>
+                <div class="tt-stat">Armure complète : <span class="sval">stats élevées</span></div>
+                <div class="tt-stat">Armes : <span class="sval red">Accursed Rage (66% chance)</span></div>
+                <div class="tt-desc">Lingot maudit de Maledictus. Craft l'armure Cursium (amélioré depuis Netherite avec template) et toutes les armes Cursium. Les armes Cursium sont indestructibles et ignifugées.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Soul Render</span>
+              <span class="rare legendary">Unique</span>
+              <div class="tt">
+                <div class="tt-name">Soul Render</div>
+                <div class="tt-type">Lance — Arme de Maledictus</div>
+                <div class="tt-stat">Portée : <span class="sval">longue (lance)</span></div>
+                <div class="tt-stat">Effet : <span class="sval purple">Arrache l'âme des ennemis</span></div>
+                <div class="tt-desc">Lance spectrale de Maledictus. Attaque longue portée avec effets d'âme. Craftée avec Cursium Ingots.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Cursed Bow</span>
+              <span class="rare legendary">Unique</span>
+              <div class="tt">
+                <div class="tt-name">Cursed Bow</div>
+                <div class="tt-type">Arc — Maudit</div>
+                <div class="tt-stat">Dégâts : <span class="sval red">élevés + effet maudit</span></div>
+                <div class="tt-stat">Fusion : <span class="sval purple">+ Sandstorm = Wrath of Desert</span></div>
+                <div class="tt-desc">Arc maudit de la prison gelée. Peut être fusionné avec Sandstorm in a Bottle dans le Mechanical Fusion Anvil pour créer la Wrath of the Desert, un arc élémentaire combiné.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Annihilator</span>
+              <span class="rare legendary">Unique</span>
+              <div class="tt">
+                <div class="tt-name">Annihilator</div>
+                <div class="tt-type">Masse — Dual wield</div>
+                <div class="tt-stat">Spécial : <span class="sval purple">Onde de choc en dual</span></div>
+                <div class="tt-stat">DPS : <span class="sval red">dévastateur</span></div>
+                <div class="tt-desc">Masse lourde de Maledictus. Quand tenues en double (dual wield), libèrent une onde de choc puissante à l'impact. L'une des armes les plus puissantes du mod.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENDER GUARDIAN -->
+    <div class="boss-card">
+      <div class="boss-img">
+        <img src="https://www.minecraft-guides.com/wp-content/uploads/2024/05/EnderGuardian.png" alt="Ender Guardian">
+        <span class="boss-dim">The End</span>
+      </div>
+      <div class="boss-body">
+        <div class="boss-name">Ender Guardian</div>
+        <div class="boss-struct">Ruined Citadel — End extérieur (îles lointaines)</div>
+        <div class="boss-stats">
+          <span class="stat-pill hp">HP élevés</span>
+          <span class="stat-pill armor">12 Armure</span>
+          <span class="sstat-pill dmg">Void Runes (7/sec)</span>
+          <span class="stat-pill phases">2 Phases</span>
+        </div>
+        <p class="boss-desc">Golem de l'End colossal gardant la Citadelle en ruines. Localisez avec un <em>Eye of Void</em> (loin dans l'End). La citadelle est infestée d'Endermapteras (insectes) et de 3 Ender Golems mini-boss. L'Ender Guardian devient <strong>immunisé aux flèches</strong> comme son homologue plus petit. En phase 2 (50% HP), il <strong>détruit le sol de l'arène</strong> — faites attention à ne pas tomber dans le vide ! À la mort, il se téléporte.</p>
+        <div class="boss-tip-line">Évitez absolument les flèches — elles rebondissent. Armes corps-à-corps uniquement (ou sorts). En phase 2, restez sur les bords de l'arène pour ne pas tomber. Tuez les Ender Golems mini-boss en chemin pour vous équiper.</div>
+        <div class="boss-drops">
+          <div class="drops-title">Drops garantis</div>
+          <div class="drops-grid">
+            <div class="item">
+              <span>Gauntlet of Guard</span>
+              <span class="rare legendary">Légendaire</span>
+              <div class="tt">
+                <div class="tt-name">Gauntlet of Guard</div>
+                <div class="tt-type">Gantelet — Arme ET armure</div>
+                <div class="tt-stat">Effet : <span class="sval blue">Attire les entités proches</span></div>
+                <div class="tt-stat">Fusion : <span class="sval purple">+ Bulwark = Gauntlet of Bulwark</span></div>
+                <div class="tt-desc">Gantelet puissant qui fonctionne comme arme ET pièce d'armure. Peut attirer les ennemis proches. Peut être fusionné avec le Bulwark of the Flame (drop d'Ignis) dans le Mechanical Fusion Anvil pour créer le Gauntlet of Bulwark.</div>
+              </div>
+            </div>
+            <div class="item">
+              <span>Void Core</span>
+              <span class="rare material">Matériau fusion</span>
+              <div class="tt">
+                <div class="tt-name">Void Core</div>
+                <div class="tt-type">Matériau fusion — Mechanical Anvil</div>
+                <div class="tt-stat">Fusion 1 : <span class="sval purple">Infernal Forge → Void Forge</span></div>
+                <div class="tt-stat">Fusion 2 : <span class="sval purple">Wither Assault → Void Assault</span></div>
+                <div class="tt-desc">Essence du vide issue de l'Ender Guardian. Utilisé dans le Mechanical Fusion Anvil pour upgrader des armes existantes avec des propriétés du vide. Peut aussi invoquer des Void Runes.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /boss-list -->
+</section>
+
+<!-- ══════════════════════════════════════════
+     DIMENSIONS
+════════════════════════════════════════════ -->
+<section class="sec" id="dimensions">
+  <h2 class="stitle">Dimensions</h2>
+  <p class="ssub">Twilight Forest, The Aether, Better End, Nether amélioré</p>
+
+  <h3 class="sh">Twilight Forest</h3>
+  <p>Dimension d'une forêt éternelle en crépuscule. Portail : entourez un plan d'eau (2x2) de fleurs sur un carré de gazon, puis lancez un diamant dans l'eau. Les boss sont <strong>séquentiels</strong> — vous devez les battre dans l'ordre (Naga, Lich, Hydra, Yéti, Sorcier, Twilight Lich, Ur-Ghast). Des locks empêchent l'accès aux zones si vous sautez des étapes. Récompenses parmi les meilleures du modpack.</p>
+
+  <h3 class="sh">The Aether</h3>
+  <p>Dimension céleste dans les nuages. Portail : cadre en Quartz entouré d'eau (comme un portail Nether mais avec de l'eau). Contient des donjons aériens (Bronze, Silver, Gold Dungeon) avec des boss uniques. MMCuck 4 ajoute les villages de l'Aether. Les ennemis volants sont redoutables — préparez-vous bien avant d'y aller.</p>
+
+  <h3 class="sh">Better End</h3>
+  <p>L'End vanilla est transformé en une dimension alien avec de nouveaux biomes colorés et structures. Battez d'abord le Dragon Ender, puis explorez la vastité de l'End réinventé. La Ruined Citadel de Cataclysm se trouve dans les îles extérieures de l'End.</p>
+
+  <h3 class="sh">Nether Amélioré</h3>
+  <p>Le Nether est enrichi avec de nouvelles structures, mobs et biomes. La Soul Forge (Netherite Monstrosity) et le Burning Arena (Ignis) y sont générés. Préparez-vous bien — le Nether est très dangereux, surtout au niveau des structures Cataclysm.</p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MINECOLONIES
+════════════════════════════════════════════ -->
+<section class="sec" id="royaume">
+  <h2 class="stitle">MineColonies — Bâtir un Royaume</h2>
+  <p class="ssub">Devenez Gouverneur d'une colonie médiévale</p>
+
+  <p><strong>MineColonies</strong> vous permet de créer une vraie colonie avec des PNJ qui travaillent, construisent, minent et se défendent automatiquement. C'est un mod complexe mais très satisfaisant en multijoueur — chaque joueur peut avoir sa propre colonie.</p>
+
+  <ol class="steps">
+    <li><div class="sc"><h4>Placer un Supply Camp</h4><p>Craftez et placez un <em>Supply Camp</em> (ou <em>Supply Ship</em> si vous êtes près de l'eau). Il contient les outils de départ, le Town Hall Blueprint et des ressources initiales.</p></div></li>
+    <li><div class="sc"><h4>Construire la Mairie (Town Hall)</h4><p>Utilisez le Blueprint inclus dans le Supply Camp pour construire la Town Hall. Une fois construite, vous devenez officiellement Gouverneur. Choisissez un style de colonie (médiéval, viking, japonais…).</p></div></li>
+    <li><div class="sc"><h4>Maisons et population</h4><p>Construisez des <em>Citizen's Huts</em> pour accueillir des colons. Chaque maison accueille 1-2 colons. Plus vous avez de maisons, plus votre population peut grandir.</p></div></li>
+    <li><div class="sc"><h4>Production alimentaire</h4><p>Construisez un <em>Farmer's Hut</em> et assignez un colon pour cultiver. Les colons ont besoin de nourriture pour travailler et se reproduire. Ajoutez un <em>Restaurant</em> pour les nourrir automatiquement.</p></div></li>
+    <li><div class="sc"><h4>Ressources et artisanat</h4><p>Construisez : Mine (minerais), Sawmill (bois), Smeltery (fonte), Blacksmith (outils), University (recherches). Chaque bâtiment a des niveaux (1-5) qui améliorent la production.</p></div></li>
+    <li><div class="sc"><h4>Défense de la colonie</h4><p>Des raids nocturnes attaquent votre colonie. Construisez des <em>Guard Towers</em>, <em>Barracks</em> et assignez des gardes. Ils défendent automatiquement. Les Barbarians et Pirate Raiders sont les ennemis principaux.</p></div></li>
+  </ol>
+
+  <div class="al gold">
+    <p><strong>Multijoueur :</strong> En serveur, évitez que les colonies se chevauchent — les chunks réclamés bloquent les Challenge Orbs des autres joueurs. Coordonnez vos emplacements. Un joueur peut rejoindre la colonie d'un autre comme Officer ou Friend pour l'aider.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TOUCHES
+════════════════════════════════════════════ -->
+<section class="sec" id="touches">
+  <h2 class="stitle">Raccourcis Clavier</h2>
+  <p class="ssub">Les touches essentielles à connaître</p>
+
+  <table>
+    <thead><tr><th>Touche</th><th>Action</th><th>Mod</th></tr></thead>
+    <tbody>
+      <tr><td><span class="kbd">L</span></td><td>Ouvrir le livre de quêtes</td><td>FTB Quests</td></tr>
+      <tr><td><span class="kbd">K</span></td><td>Arbre de compétences passif (Passive Skill Tree)</td><td>Passive Skill Tree</td></tr>
+      <tr><td><span class="kbd">O</span></td><td>Menu des Origines / Voir vos pouvoirs</td><td>Origins</td></tr>
+      <tr><td><span class="kbd">G</span></td><td>Activer votre capacité d'Origine</td><td>Origins</td></tr>
+      <tr><td><span class="kbd">R</span></td><td>Lancer un sort (Iron's Spells)</td><td>Iron's Spells</td></tr>
+      <tr><td><span class="kbd">Z</span></td><td>Interface de magie Ars Nouveau</td><td>Ars Nouveau</td></tr>
+      <tr><td><span class="kbd">N</span></td><td>Menu de gestion de colonie</td><td>MineColonies</td></tr>
+      <tr><td><span class="kbd">Alt + M</span></td><td>Carte du monde en plein écran</td><td>Xaero's World Map</td></tr>
+      <tr><td><span class="kbd">M</span></td><td>Afficher/masquer la mini-carte</td><td>Xaero's Minimap</td></tr>
+      <tr><td><span class="kbd">R</span> sur item JEI</td><td>Voir la recette de craft de cet item</td><td>JEI</td></tr>
+      <tr><td><span class="kbd">U</span> sur item JEI</td><td>Voir où cet item est utilisé</td><td>JEI</td></tr>
+      <tr><td><span class="kbd">F7</span></td><td>Afficher les zones de spawn des monstres (overlay)</td><td>Light Overlay</td></tr>
+      <tr><td><span class="kbd">F3 + B</span></td><td>Afficher les hitboxes des entités</td><td>Minecraft</td></tr>
+      <tr><td><span class="kbd">Roulette</span></td><td>Changer de sort actif (grimoire en main)</td><td>Iron's Spells / Ars</td></tr>
+      <tr><td><span class="kbd">Ctrl + Clic</span></td><td>Transférer toute une pile d'objets</td><td>Minecraft</td></tr>
+    </tbody>
+  </table>
+
+  <div class="al blue" style="margin-top:14px;">
+    <p>Si des touches entrent en conflit (surlignées en rouge dans Options > Contrôles), changez-les. Les conflits les plus fréquents : <strong>R</strong> (Iron's Spells vs autre mod), <strong>G</strong> (Origins vs autre mod), <strong>M</strong> (MineColonies vs Xaero).</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MODS
+════════════════════════════════════════════ -->
+<section class="sec" id="mods">
+  <h2 class="stitle">Liste des Mods Clés</h2>
+  <p class="ssub">Les mods les plus importants regroupés par catégorie</p>
+
+  <div class="mod-grid">
+    <div class="mod-c magic"><span class="mt">Magie</span><h4>Ars Nouveau</h4><p>Créez vos propres sorts via des glyphes combinables. Le plus polyvalent.</p></div>
+    <div class="mod-c magic"><span class="mt">Magie</span><h4>Iron's Spells 'n Spellbooks</h4><p>Parchemins de sorts, grimoires, mana. Le plus accessible pour débuter.</p></div>
+    <div class="mod-c magic"><span class="mt">Magie</span><h4>Botania</h4><p>Magie florale, récolte de mana via les fleurs. Longue mais très puissante.</p></div>
+    <div class="mod-c magic"><span class="mt">Magie</span><h4>Eidolon: Repraised</h4><p>Rituels sombres, âmes et sang. Parfait pour vampires et nécromanciens.</p></div>
+    <div class="mod-c combat"><span class="mt">Combat</span><h4>Better Combat</h4><p>Animations et portées uniques par type d'arme. Révolutionne le combat.</p></div>
+    <div class="mod-c combat"><span class="mt">Combat</span><h4>Apotheosis</h4><p>Enchantements avancés, raretés d'items (Commun → Légendaire), affixes.</p></div>
+    <div class="mod-c combat"><span class="mt">Combat</span><h4>Simply Swords</h4><p>Nouvelles armes uniques qui droppent des boss avec effets spéciaux.</p></div>
+    <div class="mod-c combat"><span class="mt">Combat</span><h4>L_Ender's Cataclysm</h4><p>8 boss épiques dans des structures dédiées avec équipements légendaires.</p></div>
+    <div class="mod-c combat"><span class="mt">Combat</span><h4>Mowzie's Mobs</h4><p>Mobs uniques avec IA avancée et drops spéciaux. Difficiles mais gratifiants.</p></div>
+    <div class="mod-c explore"><span class="mt">Exploration</span><h4>When Dungeons Arise</h4><p>Des centaines de structures et donjons uniques générés dans le monde.</p></div>
+    <div class="mod-c explore"><span class="mt">Exploration</span><h4>Towns and Towers</h4><p>Villages enrichis, tours de guet, structures variées partout.</p></div>
+    <div class="mod-c explore"><span class="mt">Exploration</span><h4>Biomes O' Plenty</h4><p>Des dizaines de nouveaux biomes très variés et visuellement beaux.</p></div>
+    <div class="mod-c explore"><span class="mt">Exploration</span><h4>YUNG's Better Series</h4><p>Refonte des donjons, mines, strongholds, portails vanilla. Bien meilleurs.</p></div>
+    <div class="mod-c build"><span class="mt">Construction</span><h4>MineColonies</h4><p>Système de colonie complet avec PNJ travailleurs autonomes.</p></div>
+    <div class="mod-c build"><span class="mt">Construction</span><h4>Macaw's Series</h4><p>Meubles, fenêtres, portes, toits, ponts. Déco médiévale très complète.</p></div>
+    <div class="mod-c build"><span class="mt">Construction</span><h4>FramedBlocks</h4><p>Copiez la texture de n'importe quel bloc sur n'importe quelle forme.</p></div>
+    <div class="mod-c surv"><span class="mt">Survie</span><h4>Survive (Soif & Température)</h4><p>Barre de soif, système de température dynamique par biome et heure.</p></div>
+    <div class="mod-c surv"><span class="mt">Survie</span><h4>Serene Seasons</h4><p>4 saisons visuelles avec effets réels sur les cultures et l'environnement.</p></div>
+    <div class="mod-c surv"><span class="mt">Survie</span><h4>Passive Skill Tree</h4><p>Arbre de talents RPG. Personnalisez votre personnage en dépensant des points.</p></div>
+    <div class="mod-c surv"><span class="mt">Survie</span><h4>Origins</h4><p>Choisissez une race au départ avec pouvoirs et contraintes uniques.</p></div>
+    <div class="mod-c dim"><span class="mt">Dimension</span><h4>Twilight Forest</h4><p>Forêt éternelle avec boss progressifs séquentiels à vaincre dans l'ordre.</p></div>
+    <div class="mod-c dim"><span class="mt">Dimension</span><h4>The Aether + Addons</h4><p>Dimension céleste avec donjons aériens et villages dans les nuages.</p></div>
+    <div class="mod-c dim"><span class="mt">Dimension</span><h4>Better End</h4><p>Refonte totale de l'End avec biomes alien et nouvelles structures.</p></div>
+    <div class="mod-c explore"><span class="mt">Interface</span><h4>JEI (Just Enough Items)</h4><p>Voir les recettes de craft de tous les items. Indispensable. R = recette, U = usage.</p></div>
+    <div class="mod-c explore"><span class="mt">Interface</span><h4>Xaero's Minimap & World Map</h4><p>Mini-carte et carte du monde avec waypoints. M = minimap, Alt+M = carte.</p></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FAQ
+════════════════════════════════════════════ -->
+<style>
+/* ─── FAQ ─── */
+.faq-list { display:flex; flex-direction:column; gap:10px; margin-top:16px; }
+.faq-item {
+  border:1px solid var(--parch3); border-radius:3px; overflow:hidden;
+}
+.faq-q {
+  width:100%; text-align:left; background:rgba(0,0,0,.04);
+  border:none; padding:13px 16px; cursor:pointer;
+  font-family:'Cinzel',serif; font-size:.88rem; font-weight:700;
+  color:var(--ink2); display:flex; align-items:center; gap:10px;
+  transition:background .15s;
+}
+.faq-q:hover { background:rgba(139,26,26,.07); color:var(--red); }
+.faq-q::before {
+  content:'Q';
+  font-family:'Cinzel Decorative',serif; font-size:.72rem;
+  background:var(--red); color:var(--parch);
+  width:22px; height:22px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.faq-q .faq-arrow {
+  margin-left:auto; color:var(--stone); font-size:.8rem;
+  transition:transform .25s;
+}
+.faq-item.open .faq-q .faq-arrow { transform:rotate(180deg); color:var(--red); }
+.faq-a {
+  display:none; padding:14px 16px 16px 48px;
+  font-size:.95rem; line-height:1.65; color:var(--ink);
+  border-top:1px solid var(--parch3);
+  background:rgba(255,255,255,.4);
+}
+.faq-item.open .faq-a { display:block; }
+.faq-a strong { color:var(--red); }
+.faq-a code {
+  background:var(--ink); color:var(--gold3);
+  font-family:monospace; font-size:.82rem;
+  padding:1px 7px; border-radius:2px;
+}
+.faq-a .faq-tip {
+  background:rgba(184,133,42,.08); border-left:3px solid var(--gold);
+  padding:8px 12px; margin-top:10px; font-size:.88rem;
+  color:#5a3606; font-style:italic; border-radius:0 3px 3px 0;
+}
+.faq-cats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.faq-cat-btn {
+  font-family:'Cinzel',serif; font-size:.65rem; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:5px 14px; border-radius:20px; cursor:pointer; border:1px solid;
+  transition:background .15s, color .15s;
+}
+.faq-cat-btn.all  { background:var(--red); color:var(--parch); border-color:var(--red); }
+.faq-cat-btn.cat-rep { background:transparent; color:#8b1a1a; border-color:#8b1a1a; }
+.faq-cat-btn.cat-rep:hover, .faq-cat-btn.cat-rep.active { background:#8b1a1a; color:var(--parch); }
+.faq-cat-btn.cat-race { background:transparent; color:#5a3a8a; border-color:#5a3a8a; }
+.faq-cat-btn.cat-race:hover, .faq-cat-btn.cat-race.active { background:#5a3a8a; color:var(--parch); }
+.faq-cat-btn.cat-serv { background:transparent; color:#2a5a2a; border-color:#2a5a2a; }
+.faq-cat-btn.cat-serv:hover, .faq-cat-btn.cat-serv.active { background:#2a5a2a; color:var(--parch); }
+.faq-cat-btn.cat-prog { background:transparent; color:#8a4a10; border-color:#8a4a10; }
+.faq-cat-btn.cat-prog:hover, .faq-cat-btn.cat-prog.active { background:#8a4a10; color:var(--parch); }
+.faq-cat-btn.cat-surv { background:transparent; color:#1a4a6a; border-color:#1a4a6a; }
+.faq-cat-btn.cat-surv:hover, .faq-cat-btn.cat-surv.active { background:#1a4a6a; color:var(--parch); }
+.faq-tag {
+  display:inline-block; font-size:.6rem; font-family:'Cinzel',serif;
+  font-weight:700; letter-spacing:.5px; padding:1px 7px; border-radius:10px;
+  text-transform:uppercase; margin-right:4px; flex-shrink:0;
+}
+.tag-rep   { background:rgba(139,26,26,.15); color:#8b1a1a; }
+.tag-race  { background:rgba(90,58,138,.15); color:#5a3a8a; }
+.tag-serv  { background:rgba(42,90,42,.15); color:#2a5a2a; }
+.tag-prog  { background:rgba(138,74,16,.15); color:#8a4a10; }
+.tag-surv  { background:rgba(26,74,106,.15); color:#1a4a6a; }
+</style>
+
+<section class="sec" id="faq">
+  <h2 class="stitle">FAQ — Questions Fréquentes</h2>
+  <p class="ssub">Les questions les plus posées sur le serveur MMCuck 4</p>
+
+  <p>Retrouvez ici les réponses aux questions les plus fréquentes, couvrant des sujets non détaillés ailleurs dans le wiki. Cliquez sur une question pour révéler la réponse.</p>
+
+  <div class="faq-cats">
+    <button class="faq-cat-btn all" onclick="filterFaq('all',this)">Tout</button>
+    <button class="faq-cat-btn cat-rep" onclick="filterFaq('rep',this)">Réparation</button>
+    <button class="faq-cat-btn cat-race" onclick="filterFaq('race',this)">Race / Origine</button>
+    <button class="faq-cat-btn cat-prog" onclick="filterFaq('prog',this)">Progression</button>
+    <button class="faq-cat-btn cat-surv" onclick="filterFaq('surv',this)">Survie</button>
+    <button class="faq-cat-btn cat-serv" onclick="filterFaq('serv',this)">Serveur</button>
+  </div>
+
+  <div class="faq-list">
+
+    <!-- RÉPARATION -->
+    <div class="faq-item" data-cat="rep">
+      <button class="faq-q"><span class="faq-tag tag-rep">Réparation</span>Comment réparer mes items lootés avec Apotheosis (épées, armures colorées) ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Les items Apotheosis (raretés colorées : Commun, Rare, Épique, Légendaire) se réparent <strong>à l'enclume classique</strong> en utilisant le <strong>matériau de base</strong> correspondant à l'item.
+        <br><br>
+        <strong>Exemples :</strong><br>
+        • Épée en Netherite → lingot de Netherite<br>
+        • Armure en diamant → lingot de diamant<br>
+        • Outil en fer → lingot de fer<br><br>
+        Cela coûte des niveaux d'XP. La <strong>Reforging Table</strong> d'Apotheosis ne répare pas — elle relance uniquement les affixes aléatoires (stats) d'un item.
+        <div class="faq-tip">💡 L'enchantement <strong>Mending</strong> fonctionne normalement sur la plupart de ces items et reste la méthode la plus efficace à long terme.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="rep">
+      <button class="faq-q"><span class="faq-tag tag-rep">Réparation</span>Comment réparer les armes uniques des boss Cataclysm (Infernal Forge, Tidal Claws...) ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Les items uniques de <strong>L'Ender's Cataclysm</strong> se réparent à l'enclume avec des <strong>lingots spéciaux</strong> selon le boss d'origine :
+        <br><br>
+        • Items du <strong>Netherite Monstrosity</strong> → <code>Ignitium Ingot</code><br>
+        • Items de <strong>Ignis</strong> → <code>Ignitium Ingot</code><br>
+        • Items liés au Wither/Harbinger → <code>Witherite Ingot</code><br>
+        • Items de l'End → <code>Cursium Ingot</code><br><br>
+        Les items <strong>Indestructibles</strong> (Ignitium, Cursium, Witherite) ne peuvent jamais se casser — inutile de les réparer.
+        <div class="faq-tip">💡 En cas de doute, survolez l'item et regardez la rareté et la source. Vérifiez la recette dans JEI (<code>R</code> sur l'enclume) pour confirmer le matériau.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="rep">
+      <button class="faq-q"><span class="faq-tag tag-rep">Réparation</span>Comment réparer les armes Simply Swords ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Les armes du mod <strong>Simply Swords</strong> (Longswords, Greatswords, Glaives, Spears...) se réparent à l'enclume classique avec le <strong>matériau correspondant au tier de l'arme</strong>.
+        <br><br>
+        • Arme en bois → planche<br>
+        • Arme en pierre → cobblestone<br>
+        • Arme en fer → lingot de fer<br>
+        • Arme en diamant → lingot de diamant<br>
+        • Arme en Netherite → lingot de Netherite<br><br>
+        Comme pour les items Apotheosis, <strong>Mending</strong> fonctionne également et est préférable.
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="rep">
+      <button class="faq-q"><span class="faq-tag tag-rep">Réparation</span>Comment reset mes points du Passive Skill Tree ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Pour récupérer <strong>tous vos points</strong> du Passive Skill Tree (touche <code>K</code>), craftez un <strong>Orb of Sorrow</strong> :
+        <br><br>
+        <code>1 Nether Star</code> + <code>8 Crying Obsidian</code> (disposition en carré)
+        <br><br>
+        En utilisant l'Orb of Sorrow, tous vos points sont réinitialisés et vous les récupérez. Il n'existe <strong>pas de méthode de reset partiel</strong> — c'est tout ou rien.
+        <div class="faq-tip">💡 Avant de crafter un Orb of Sorrow, notez votre build actuel dans un carnet pour le reproduire facilement après le reset.</div>
+      </div>
+    </div>
+
+    <!-- RACE / ORIGINE -->
+    <div class="faq-item" data-cat="race">
+      <button class="faq-q"><span class="faq-tag tag-race">Race</span>Comment changer d'Origine / de race après le début ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Craftez un <strong>Orb of Origin</strong>. La recette exacte peut varier selon la version du modpack — vérifiez dans <strong>JEI</strong> (touche <code>R</code> sur l'item) :
+        <br><br>
+        <em>Recette approximative :</em> <code>1 Ender Pearl</code> + <code>4 Blaze Rod</code> + <code>4 Amethyst Shard</code>
+        <br><br>
+        Utilisez l'Orb of Origin dans votre main principale pour ouvrir le menu de sélection de race. Vous pouvez rechoisir une nouvelle origine comme au démarrage.
+        <div class="faq-tip">💡 L'Orb of Origin est aussi parfois disponible comme récompense de quête à certains niveaux de progression — vérifiez vos quêtes (touche <code>L</code>) avant de le crafter !</div>
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="race">
+      <button class="faq-q"><span class="faq-tag tag-race">Race</span>Quelle est la meilleure origine pour débuter ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Pour les <strong>débutants</strong>, les meilleures options sont :
+        <br><br>
+        • <strong>Humain</strong> — Aucune faiblesse, bonus d'XP léger. Parfait pour apprendre le modpack sans contraintes.<br>
+        • <strong>Nain</strong> — Résistance aux dégâts et bonus de minage, idéal pour explorer les donjons souterrains.<br>
+        • <strong>Elfe</strong> — Vitesse et vision nocturne, bon pour l'exploration, mais évitez le Nether au début.<br><br>
+        <strong>À éviter pour commencer :</strong> Vampire (brûle au soleil, ne mange pas de nourriture normale), Pixie (très fragile, ne porte pas d'armure), Banshee (contraintes complexes).
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="race">
+      <button class="faq-q"><span class="faq-tag tag-race">Race</span>Comment le Vampire survit-il au soleil ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Le Vampire brûle en plein soleil. Pour jouer la journée, plusieurs solutions :
+        <br><br>
+        • <strong>Restez à l'intérieur</strong> ou sous les arbres (l'ombre protège)<br>
+        • Portez un <strong>casque</strong> — même un casque en bois — pour bloquer le soleil<br>
+        • Le mod <strong>Eidolon</strong> propose des rituels pour résister à la lumière<br>
+        • Jouez <strong>la nuit</strong> — vous êtes quasiment invulnérable, c'est votre moment de puissance<br><br>
+        Pour vous nourrir : approchez-vous d'un mob passif ou hostile et utilisez votre capacité active (<code>G</code>) pour drainer du sang. Les villages sont une bonne source de "nourriture" nocturne.
+      </div>
+    </div>
+
+    <!-- PROGRESSION -->
+    <div class="faq-item" data-cat="prog">
+      <button class="faq-q"><span class="faq-tag tag-prog">Progression</span>Comment trouver les structures des boss Cataclysm ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Chaque boss Cataclysm possède un <strong>Eye</strong> (objet localisateur) qui pointe vers sa structure quand on le tient en main. Les Eyes se craftent ou se trouvent en coffre :
+        <br><br>
+        • <code>Eye of Monstrous</code> → Soul Forge (Netherite Monstrosity)<br>
+        • <code>Eye of Flame</code> → Burning Arena (Ignis)<br>
+        • <code>Eye of Mech</code> → Ancient Factory (Harbinger)<br>
+        • <code>Eye of Desert</code> → Cursed Pyramid (Ancient Remnant)<br>
+        • <code>Eye of Abyss</code> → Sunken City (Leviathan)<br>
+        • <code>Eye of Storm</code> → Acropolis (Scylla)<br>
+        • <code>Eye of Curse</code> → Frosted Prison (Maledictus)<br>
+        • <code>Eye of Void</code> → Ruined Citadel — End (Ender Guardian)<br>
+        <div class="faq-tip">💡 Les recettes des Eyes sont dans JEI. La plupart nécessitent des matériaux du boss précédent — suivez l'ordre de progression recommandé.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="prog">
+      <button class="faq-q"><span class="faq-tag tag-prog">Progression</span>Comment fonctionne la Mechanical Fusion Anvil ? Quelles fusions sont possibles ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        La <strong>Mechanical Fusion Anvil</strong> (Cataclysm) permet de fusionner deux items boss pour créer une version améliorée ultra-puissante.
+        <br><br>
+        <strong>Craft :</strong> <code>6 Witherite Ingots</code> + <code>1 Enclume</code> + <code>2 Redstone Blocks</code><br>
+        (Witherite = drop du Harbinger)
+        <br><br>
+        <strong>Fusions disponibles :</strong><br>
+        • Infernal Forge + Void Core = <strong>Void Forge</strong><br>
+        • Wither Assault + Void Core = <strong>Void Assault</strong><br>
+        • Gauntlet of Guard + Bulwark of the Flame = <strong>Gauntlet of Bulwark</strong><br>
+        • Ignitium Chestplate + Elytra = <strong>Ignition Aerial Chestplate</strong><br>
+        • Cursed Bow + Sandstorm in a Bottle = <strong>Wrath of the Desert</strong>
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="prog">
+      <button class="faq-q"><span class="faq-tag tag-prog">Progression</span>Comment faire respawn un boss déjà tué ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Utilisez les <strong>Challenge Orbs</strong> — des objets craftables avec des matériaux end-game qui permettent de faire réapparaître un boss ou une structure déjà vaincue.
+        <br><br>
+        Les Challenge Orbs existent pour tous les boss Cataclysm, les mobs EEEAB's Mobs, Mowzie's Mobs, le Dead King (Iron's Spellbooks) et les structures When Dungeons Arise.
+        <br><br>
+        <strong>Attention :</strong> Les Challenge Orbs <strong>ne fonctionnent pas</strong> dans les chunks réclamés par MineColonies. Utilisez-les en dehors de votre colonie.
+        <div class="faq-tip">💡 Vérifiez la recette dans JEI — chaque boss a son propre Challenge Orb avec des matériaux spécifiques.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="prog">
+      <button class="faq-q"><span class="faq-tag tag-prog">Progression</span>Comment faire le portail du Twilight Forest ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        <strong>Étapes :</strong>
+        <br><br>
+        1. Creusez un trou <strong>2×2</strong> dans de l'herbe naturelle<br>
+        2. Entourez les 8 blocs adjacents avec des <strong>fleurs</strong> (n'importe quel type)<br>
+        3. Remplissez le trou de <strong>2 seaux d'eau</strong><br>
+        4. Jetez un <strong>Diamant</strong> dans l'eau<br>
+        5. Un éclair frappe et l'eau devient le portail<br><br>
+        Une fois dans le Twilight Forest, affrontez les boss <strong>dans l'ordre</strong> (Naga → Lich → Minoshroom → Hydra → Knight Phantom → Ur-Ghast → Glacier → Snow Queen). Tuer un boss dans le désordre peut bloquer la progression.
+      </div>
+    </div>
+
+    <!-- SURVIE -->
+    <div class="faq-item" data-cat="surv">
+      <button class="faq-q"><span class="faq-tag tag-surv">Survie</span>Comment purifier l'eau pour éviter la nausée ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        L'eau brute des rivières et lacs peut donner l'effet <strong>Nausea</strong>. Deux méthodes pour la purifier :
+        <br><br>
+        <strong>Méthode 1 — Chaudron :</strong><br>
+        Placez un Chaudron (<em>Cauldron</em>) sur 3 blocs de feu ou de lave. Versez l'eau brute dedans et attendez qu'elle bouille (bulles visibles). L'eau bouillie est propre.
+        <br><br>
+        <strong>Méthode 2 — Tablette :</strong><br>
+        Craftez un <code>Water Purification Tablet</code> (recette dans JEI) et utilisez-le sur une bouteille d'eau.
+        <div class="faq-tip">💡 L'<strong>hydromel</strong> (Mead : 1 Honey Bottle + 3 Water Bottles) est une excellente alternative — il désaltère bien, est toujours propre, et donne des effets positifs.</div>
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="surv">
+      <button class="faq-q"><span class="faq-tag tag-surv">Survie</span>Comment gérer la température (trop froid / trop chaud) ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Le mod <strong>Survive</strong> ajoute une température dynamique. Des effets négatifs (Slowness, Weakness) apparaissent si vous sortez des limites.
+        <br><br>
+        <strong>Trop froid</strong> (nuit, hiver, biomes enneigés) :<br>
+        • Portez une armure complète (même en fer)<br>
+        • Restez près d'un feu ou d'une torche<br>
+        • Consommez de la nourriture chaude ou de l'hydromel<br><br>
+        <strong>Trop chaud</strong> (Nether, désert, été) :<br>
+        • Trouvez de l'ombre (sous des arbres ou un toit)<br>
+        • Buvez de l'eau purifiée fréquemment<br>
+        • Enlevez l'armure lourde si possible<br><br>
+        La barre de température est affichée en bas de l'écran avec la barre de soif.
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="surv">
+      <button class="faq-q"><span class="faq-tag tag-surv">Survie</span>Les cultures ne poussent plus — pourquoi ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        C'est tout à fait normal ! Le mod <strong>Serene Seasons</strong> ajoute des saisons réelles. En <strong>hiver</strong>, la grande majorité des cultures ne poussent plus ou poussent très lentement.
+        <br><br>
+        <strong>Solutions :</strong><br>
+        • Attendez le <strong>printemps</strong> — les cultures reprennent normalement<br>
+        • Construisez une <strong>serre chauffée</strong> (maison en verre avec torches ou lave en-dessous) pour faire pousser des cultures en hiver<br>
+        • Stockez des récoltes dès l'automne avant l'hiver<br><br>
+        Les saisons durent par défaut environ 8 jours en jeu chacune. Vous pouvez voir la saison actuelle dans l'interface.
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="surv">
+      <button class="faq-q"><span class="faq-tag tag-surv">Survie</span>Quelles gemmes socketer en priorité dans mes équipements ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Les <strong>Gemmes</strong> droppent des minerais et se socketent dans vos armures et armes via l'interface Passive Skill Tree (<code>K</code>).
+        <br><br>
+        <strong>Priorités recommandées :</strong><br>
+        • <strong>Armes</strong> → Vitesse d'attaque, puis Dégâts<br>
+        • <strong>Armures</strong> → Armure / Résistance, puis Points de vie<br>
+        • <strong>Slots libres</strong> → Régénération, Vitesse de déplacement<br><br>
+        Les gemmes de meilleure qualité (plus grosses / couleur plus vive) donnent des bonus supérieurs. Privilégiez les slots d'arme pour maximiser votre DPS avant de vous occuper des armures.
+      </div>
+    </div>
+
+    <!-- SERVEUR -->
+    <div class="faq-item" data-cat="serv">
+      <button class="faq-q"><span class="faq-tag tag-serv">Serveur</span>Pourquoi les monstres sont-ils si forts près de moi mais faciles ailleurs ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Le mod <strong>Passive Skill Tree</strong> adapte le niveau des monstres à votre progression. Plus vous avez de points dépensés, plus les monstres locaux sont forts.
+        <br><br>
+        En <strong>multijoueur</strong>, les monstres se basent sur la <em>moyenne</em> des points PST de tous les joueurs proches. Si un joueur très avancé s'approche de vous, les mobs deviennent soudainement bien plus dangereux.
+        <div class="faq-tip">💡 Si vous débutez, évitez de rester trop longtemps près de joueurs end-game — les mobs dans votre zone seront bien au-dessus de votre niveau !</div>
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="serv">
+      <button class="faq-q"><span class="faq-tag tag-serv">Serveur</span>Comment supprimer ou déplacer une colonie MineColonies ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Il est <strong>impossible de supprimer une colonie en survie classique</strong>. Options disponibles :
+        <br><br>
+        • <strong>Si vous êtes OP</strong> : commande <code>/mc colony delete &lt;id&gt;</code><br>
+        • <strong>Laisser les Raiders attaquer</strong> : une colonie complètement détruite peut éventuellement disparaître<br>
+        • <strong>Abandonner et recommencer ailleurs</strong> : le Town Hall peut être détruit manuellement (à la pioche) et replacé à un autre endroit pour déplacer votre colonie<br><br>
+        Pour agrandir votre colonie : montez le niveau du <strong>Town Hall</strong> en fournissant bois, pierre et outils au Builder.
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="serv">
+      <button class="faq-q"><span class="faq-tag tag-serv">Serveur</span>Comment voir la recette d'un item que je ne connais pas ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        Le mod <strong>JEI (Just Enough Items)</strong> est votre meilleur ami :
+        <br><br>
+        • Survolez n'importe quel item → appuyez sur <code>R</code> pour voir sa <strong>recette de craft</strong><br>
+        • Survolez n'importe quel item → appuyez sur <code>U</code> pour voir <strong>où il est utilisé</strong><br>
+        • Cliquez sur l'icône loupe en bas à gauche de l'inventaire pour <strong>rechercher un item</strong> par nom<br><br>
+        Pour les recettes introuvables dans JEI, consultez aussi le <strong>livre de quêtes</strong> (touche <code>L</code>) — les quêtes expliquent souvent le craft des items importants du modpack.
+      </div>
+    </div>
+
+    <div class="faq-item" data-cat="serv">
+      <button class="faq-q"><span class="faq-tag tag-serv">Serveur</span>Le jeu rame / lag — comment l'optimiser côté client ?<span class="faq-arrow">▼</span></button>
+      <div class="faq-a">
+        MMCuck 4 est un modpack lourd. Recommandations pour améliorer les performances :
+        <br><br>
+        • <strong>RAM allouée</strong> : 6 à 8 Go minimum côté client (dans le launcher)<br>
+        • <strong>Distance d'affichage</strong> : baissez à 8 chunks (Options → Vidéo)<br>
+        • <strong>Shaders</strong> : désactivez-les si vous en avez — très gourmands<br>
+        • <strong>Entités</strong> : réduisez la distance de rendu des entités<br>
+        • <strong>Mods performance</strong> : Embeddium (déjà inclus) et Rubidium optimisent déjà le rendu<br><br>
+        Si le lag vient du serveur (pas de votre machine), rien à faire côté client — c'est le serveur qui limite.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// FAQ category filter
+function filterFaq(cat, el) {
+  document.querySelectorAll('.faq-cat-btn').forEach(b => b.classList.remove('active','all'));
+  el.classList.add('active');
+  document.querySelectorAll('.faq-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+      item.classList.remove('open');
+    }
+  });
+}
+</script>
+
+</main>
+</div>
+
+<footer>
+  <p>Wiki <span>MMCuck 4</span> — Forge 1.20.1 — LunaPixelStudios — Wiki non-officiel en Français</p>
+  <p style="margin-top:6px;opacity:.5;">Les stats des boss sont issues du wiki officiel L_Ender's Cataclysm et minecraft-guides.com</p>
+</footer>
+
+<a href="#top" class="btt" title="Retour en haut">&#9650;</a>
+
+</body>
+</html>
+
+
