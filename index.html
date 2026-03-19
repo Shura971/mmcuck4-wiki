@@ -437,7 +437,7 @@ footer span { color:var(--gold2); }
   </div>
 
   <ol class="steps">
-    <li><div class="sc"><h4>Choisir votre Origine</h4><p>Dès la première connexion, un menu vous propose de choisir votre race (Humain, Elfe, Nain, Vampire…). Ce choix est <strong>définitif</strong> sans Orb of Origin. Chaque race a des bonus et malus uniques — voir la section Origines.</p></div></li>
+    <li><div class="sc"><h4>Choisir votre Origine</h4><p>Dès la première connexion, un menu vous propose de choisir votre race parmi 18 options (Alfiq, Dwarf, Wood Elf, Yeti, Siren, Banshee…). Ce choix est <strong>définitif</strong> sans Orb of Origin. Chaque race a des bonus et malus uniques — voir la section Origines pour la liste complète.</p></div></li>
     <li><div class="sc"><h4>Ouvrir le livre de quêtes</h4><p>Touche <strong>L</strong>. Commencez par les premières quêtes — elles fournissent outils, nourriture et explications pour chaque mod au fur et à mesure de votre progression.</p></div></li>
     <li><div class="sc"><h4>Gérer la soif et la température</h4><p>Le mod <em>Survive</em> ajoute une barre de soif. Tenez une bouteille vide devant l'eau et faites clic-droit pour remplir. L'eau brute peut donner la nausée — faites-la bouillir dans un chaudron au-dessus du feu.</p></div></li>
     <li><div class="sc"><h4>Construire un abri rapidement</h4><p>Les nuits sont très dangereuses — les monstres ont des niveaux qui s'adaptent au vôtre. Construisez un abri solide avant le coucher du soleil dès le jour 1.</p></div></li>
@@ -451,65 +451,187 @@ footer span { color:var(--gold2); }
 ════════════════════════════════════════════ -->
 <section class="sec" id="origines">
   <h2 class="stitle">Origines & Races</h2>
-  <p class="ssub">Medieval Origins Revival — Choisissez votre destin</p>
+  <p class="ssub">Medieval Origins Revival — 18 races jouables</p>
 
-  <p>Le mod <strong>Origins + Medieval Origins Revival</strong> vous fait choisir une race au démarrage. Chaque race modifie vos stats, vous donne une capacité active (touche <strong>G</strong>) et des contraintes permanentes. Le choix est définitif sauf utilisation d'un <strong>Orb of Origin</strong> (craftable, voir les quêtes).</p>
+  <p>Le mod <strong>Origins + Medieval Origins Revival</strong> vous propose <strong>18 races</strong> au démarrage. Chaque race modifie vos stats, vous donne des capacités actives (touches <strong>G / V</strong>) et des contraintes permanentes. Le choix est définitif sauf utilisation d'un <strong>Orb of Origin</strong> (craftable, voir les quêtes).</p>
 
   <div class="al red">
-    <p><strong>Attention :</strong> Le Vampire brûle au soleil et ne peut pas manger de nourriture normale — il doit drainer du sang. Le Pixie est incapable de porter une armure lourde. Lisez bien les malus avant de choisir, surtout en multijoueur !</p>
+    <p><strong>Lisez bien les malus avant de choisir !</strong> Certaines races sont très contraignantes en solo mais aussi en multijoueur. La Banshee ne peut pas porter d'armure en fer, la Sirène meurt instantanément au contact du feu, le Nain coule dans l'eau. Vérifiez les descriptions complètes en jeu avant de confirmer.</p>
   </div>
 
+  <style>
+  .origin-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; margin-top:14px; }
+  .ocard { background:linear-gradient(160deg,#160e06,#0d0805); border:1px solid var(--gold); border-radius:3px; padding:14px; text-align:center; transition:transform .2s,box-shadow .2s; }
+  .ocard:hover { transform:translateY(-3px); box-shadow:0 6px 20px rgba(184,133,42,.18); }
+  .ocard h4 { font-family:'Cinzel',serif; font-size:.82rem; font-weight:700; color:var(--gold3); margin-bottom:6px; }
+  .ocard .odiff { font-family:'Cinzel',serif; font-size:.6rem; font-weight:700; letter-spacing:1px; padding:2px 8px; border-radius:10px; text-transform:uppercase; display:inline-block; margin-bottom:6px; }
+  .od-easy { background:rgba(40,130,40,.25); color:#60c060; }
+  .od-med  { background:rgba(170,110,20,.25); color:#d09030; }
+  .od-hard { background:rgba(150,30,30,.25); color:#e05050; }
+  .ocard p { font-size:.8rem; color:#c0a870; line-height:1.4; margin:0 0 5px; }
+  .ocard .pro { font-size:.75rem; color:#70c870; text-align:left; }
+  .ocard .con { font-size:.75rem; color:#f08080; text-align:left; }
+  .origin-tip { background:rgba(184,133,42,.08); border-left:3px solid var(--gold); padding:6px 10px; font-size:.78rem; color:#8a6020; font-style:italic; margin-top:6px; text-align:left; border-radius:0 2px 2px 0; }
+  </style>
+
   <div class="origin-grid">
+
     <div class="ocard">
-      <img class="oimg" src="https://minecraft.wiki/images/Steve_skin.png" alt="Humain" onerror="this.style.display='none'">
-      <h4>Humain</h4>
-      <p>Race de base, aucune faiblesse particulière. Idéal pour les débutants.</p>
-      <p class="pro">+ Bonus d'XP léger</p>
-      <p class="con">— Aucune capacité spéciale</p>
+      <h4>🐱 Alfiq</h4>
+      <span class="odiff od-med">Intermédiaire</span>
+      <p>Félin anthropomorphe agile aux griffes acérées. <em>C'est la race "Filline" !</em></p>
+      <p class="pro">+ Griffes (dégâts mains nues + grimpe aux murs)<br>+ Bond (Pounce) avec dégâts bonus<br>+ Immunité dégâts de chute (-5 cœurs)<br>+ Pickpocket sur villageois<br>+ Bonus de vitesse au crépuscule/aube</p>
+      <p class="con">— Moins efficace avec outils et épées<br>— Armure légère uniquement (enchant pour lourde)<br>— Lent aux autres heures</p>
+      <div class="origin-tip">💡 Idéale pour un style furtif / mains nues. Combine très bien avec Ars Nouveau.</div>
     </div>
+
     <div class="ocard">
-      <img class="oimg" src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/4c/Elven-High_Elf_Origins.png/revision/latest" alt="Elfe" onerror="this.style.display='none'">
-      <h4>Elfe</h4>
-      <p>Créature sylvestre agile, en harmonie avec la nature et les forêts.</p>
-      <p class="pro">+ Vitesse, vision nocturne</p>
-      <p class="con">— Moins de vie, faible en Nether</p>
+      <h4>🕷 Arachnae</h4>
+      <span class="odiff od-hard">Avancée</span>
+      <p>Mi-humain mi-araignée, venimeux et grimpeur. Nécessite beaucoup de nourriture.</p>
+      <p class="pro">+ Grimpe aux murs<br>+ Vision nocturne (8 yeux)<br>+ Morsure venimeuse (chance de Poison)<br>+ Toile immobilisante (active)</p>
+      <p class="con">— Faim très élevée<br>— Moins de vie que la normale<br>— Armure max : fer (enchant pour mieux)<br>— Carnivore</p>
     </div>
+
     <div class="ocard">
-      <h4>High Elf</h4>
-      <p>Elfe supérieur doté d'une affinité naturelle pour la magie.</p>
-      <p class="pro">+ Bonus mana, sorts plus puissants</p>
-      <p class="con">— Très fragile, besoin de lumière</p>
+      <h4>👻 Banshee</h4>
+      <span class="odiff od-hard">Expert</span>
+      <p>Esprit en colère pouvant devenir intangible. Contraintes extrêmes, lire avant de choisir.</p>
+      <p class="pro">+ Traverse les blocs (mode spectral, actif)<br>+ Malédiction réfléchie quand frappé<br>+ Cri repoussant + bouclier (actif)<br>+ Bonus dégâts avec armes maudites</p>
+      <p class="con">— Seulement la moitié des PV normaux<br>— Le fer/argent est insupportable à porter<br>— Se nourrit uniquement du clair de lune<br>— Ne peut pas mourir de faim mais très fragile</p>
+      <div class="origin-tip">⚠ Race pour joueurs très expérimentés. Contre-intuitive mais redoutable en end-game.</div>
     </div>
+
     <div class="ocard">
-      <h4>Nain</h4>
-      <p>Robuste bâtisseur et mineur hors pair, chez lui sous la roche.</p>
-      <p class="pro">+ Résistance dégâts, bonus minage</p>
-      <p class="con">— Lent, claustrophobie des grands espaces</p>
+      <h4>⛏ Dwarf (Nain)</h4>
+      <span class="odiff od-easy">Débutant</span>
+      <p>Mineur robuste et résistant, chez lui sous la roche. Taille : 102cm.</p>
+      <p class="pro">+ Mine la pierre sans pioche<br>+ Mine tout plus vite<br>+ Vision nocturne parfaite<br>+ Potion de santé complète (actif)<br>+ Passe dans les tunnels de 1 bloc</p>
+      <p class="con">— Brûle les yeux au soleil (casque en or = protection)<br>— Coule immédiatement dans l'eau<br>— Petite taille (avantage aussi)</p>
+      <div class="origin-tip">💡 Excellente pour débuter — robuste et très efficace pour miner et explorer les donjons souterrains.</div>
     </div>
+
     <div class="ocard">
-      <h4>Vampire</h4>
-      <p>Prédateur nocturne redoutable. Puissant mais avec de lourdes contraintes.</p>
-      <p class="pro">+ Régénération au sang, invulnérable la nuit</p>
-      <p class="con">— Brûle au soleil, ne peut pas manger</p>
+      <h4>🧚 Fae</h4>
+      <span class="odiff od-med">Intermédiaire</span>
+      <p>Humanoïde ailé magique de la forêt. Taille : 122cm. Attirant pour les mobs.</p>
+      <p class="pro">+ Lévitation (vol vertical, actif)<br>+ Résistance aux dégâts magiques<br>+ Régénération rapide (coûte faim)<br>+ Immunité poison et nausée<br>+ Plante des graines automatiquement</p>
+      <p class="con">— Mobs l'attaquent de bien plus loin<br>— Le fer/argent est insupportable à porter<br>— Petite taille</p>
     </div>
+
     <div class="ocard">
-      <h4>Nécromancien</h4>
-      <p>Maître des morts, invoque des serviteurs pour se battre à sa place.</p>
-      <p class="pro">+ Invoque des morts-vivants alliés</p>
-      <p class="con">— Peu de vie, repoussé par les villages</p>
+      <h4>🧌 Goblin</h4>
+      <span class="odiff od-easy">Débutant</span>
+      <p>Petit être obsédé par l'or. Chanceux mais fragile. Taille : 92cm.</p>
+      <p class="pro">+ Trouve plus de loot rare<br>+ Bonus avec équipement en or<br>+ L'or s'use moins vite<br>+ Très rapide à la course</p>
+      <p class="con">— Moins de vie, plus de dégâts reçus<br>— Très petit (taille 92cm)<br>— Villageois méfiants</p>
     </div>
+
     <div class="ocard">
-      <h4>Pixie</h4>
-      <p>Petite créature féérique très mobile. Pour joueurs expérimentés.</p>
-      <p class="pro">+ Vol limité, passe dans les petits espaces</p>
-      <p class="con">— Très faible, ne peut pas porter d'armure lourde</p>
+      <h4>🐍 Gorgon</h4>
+      <span class="odiff od-hard">Avancée</span>
+      <p>Ancienne humaine maudite. Cheveux de serpents et regard pétrifiant.</p>
+      <p class="pro">+ Regard pétrifiant (active, sauf boss)<br>+ Immunité au poison<br>+ Sang toxique (empoisonne les proches quand blessée)<br>+ Dégâts x2 à faible santé</p>
+      <p class="con">— Eau = dégâts (hydrophobe)<br>— Pétrifiée en plein jour sans casque<br>— Le fer/argent inflige des dégâts</p>
     </div>
+
     <div class="ocard">
-      <h4>Banshee</h4>
-      <p>Spectre semi-incorporel, redoutable et difficile à apprivoiser.</p>
-      <p class="pro">+ Peut traverser certaines surfaces</p>
-      <p class="con">— Ne peut pas porter certaines armures</p>
+      <h4>🧝 High Elf</h4>
+      <span class="odiff od-med">Intermédiaire</span>
+      <p>Elfe supérieur arrogant mais très puissant en magie. Spécialiste des éléments.</p>
+      <p class="pro">+ Plus de mana naturellement<br>+ Régénération mana accélérée<br>+ Dégâts magiques augmentés<br>+ Résistance aux dégâts magiques<br>+ Magie élémentaire via objets tenus (actif)</p>
+      <p class="con">— Très fragile (moins de PV, plus de dégâts physiques reçus)<br>— Armure lourde ralentit (enchant pour corriger)</p>
+      <div class="origin-tip">💡 Race parfaite pour un build mage Ars Nouveau ou Iron's Spells.</div>
     </div>
+
+    <div class="ocard">
+      <h4>😈 Incubus</h4>
+      <span class="odiff od-hard">Avancée</span>
+      <p>Serviteur démoniaque de feu. Très puissant dans le Nether, faible en Overworld.</p>
+      <p class="pro">+ Immunité au feu, la lave le nourrit<br>+ Magie de feu boostée<br>+ Burst de flammes (actif)<br>+ Échange vie contre puissance temporaire</p>
+      <p class="con">— L'eau inflige des dégâts<br>— Smite inflige plus de dégâts<br>— Faible en Overworld, puissant uniquement en Nether<br>— Carnivore uniquement</p>
+    </div>
+
+    <div class="ocard">
+      <h4>🌙 Moon Elf</h4>
+      <span class="odiff od-med">Intermédiaire</span>
+      <p>Elfe mystérieux de la nuit, spécialiste de la furtivité et des lames courtes.</p>
+      <p class="pro">+ Invisibilité en se baissant dans le noir (actif)<br>+ 1er coup depuis furtivité = bonus massif<br>+ Bonus dégâts daggers/couteaux<br>+ Esquive passive (chance)<br>+ Légèrement plus grand</p>
+      <p class="con">— Ne peut pas dormir en Overworld<br>— Fragile (moins de PV, plus de dégâts physiques)<br>— Armure lourde = ralentissement</p>
+    </div>
+
+    <div class="ocard">
+      <h4>👹 Ogre</h4>
+      <span class="odiff od-easy">Débutant</span>
+      <p>Sous-espèce d'Orc massive et brutale. Taille : 268cm. Force brute maximale.</p>
+      <p class="pro">+ Enorme quantité de PV<br>+ Bonus massif avec les haches<br>+ Immunité poison et faim<br>+ Rage berserk (actif)</p>
+      <p class="con">— Ne passe pas dans les portes ni structures normales<br>— Faim constante et élevée<br>— Très lent<br>— Taille immense (268cm)</p>
+    </div>
+
+    <div class="ocard">
+      <h4>🧚 Pixie</h4>
+      <span class="odiff od-hard">Expert</span>
+      <p>Minuscule créature féérique espiègle. Taille : 22cm. Pour joueurs très expérimentés.</p>
+      <p class="pro">+ Vol (ailes)<br>+ Peut se faufiler dans des espaces minuscules</p>
+      <p class="con">— Taille de 22cm (immense handicap)<br>— Très faible défense<br>— Villageois refusent de commercer<br>— Extrêmement fragile</p>
+      <div class="origin-tip">⚠ La race la plus difficile du jeu. Déconseillée aux débutants.</div>
+    </div>
+
+    <div class="ocard">
+      <h4>☠ Plague Victim</h4>
+      <span class="odiff od-hard">Expert</span>
+      <p>Mi-mort victime d'une maladie magique. Playstyle unique basé sur la contagion.</p>
+      <p class="pro">+ Aura pestilentielle (drain de vie des proches)<br>+ Immunité poison et Wither<br>+ Résurrection 1x/5min<br>+ Peut transmettre l'infection</p>
+      <p class="con">— Ne peut PAS porter d'armure<br>— Ne peut pas dormir<br>— Moins de PV et de vitesse<br>— Villageois refusent de commercer</p>
+    </div>
+
+    <div class="ocard">
+      <h4>💀 Revenant</h4>
+      <span class="odiff od-hard">Avancée</span>
+      <p>Mort-vivant revenu à la vie, obsédé par la manipulation des âmes. Invoque des squelettes.</p>
+      <p class="pro">+ Invoque des squelettes/zombies alliés (jusqu'à 5)<br>+ Invocations amies des Illageois<br>+ Mange des os et têtes</p>
+      <p class="con">— Les cultures meurent à son contact<br>— Ne peut pas dormir<br>— Les mobs infligent plus de dégâts<br>— Villageois et vivants hostiles<br>— Interactions limitées avec le monde vivant</p>
+      <div class="origin-tip">💡 Très puissant avec une armée de morts. Combine bien avec Eidolon (magie sombre).</div>
+    </div>
+
+    <div class="ocard">
+      <h4>🧜 Siren</h4>
+      <span class="odiff od-med">Intermédiaire</span>
+      <p>Sirène aquatique aux pouvoirs d'envoûtement. Redoutable dans l'eau, vulnérable au feu.</p>
+      <p class="pro">+ Nage très vite<br>+ Régénération totale dans l'eau<br>+ Chant envoûtant (rend les mobs neutres, actif)<br>+ Vision sous-marine parfaite</p>
+      <p class="con">— Contact avec le feu = mort instantanée<br>— Hors de l'eau : soigne uniquement avec potions<br>— Faible aux dégâts de bludgeon</p>
+      <div class="origin-tip">⚠ Ne jamais approcher de la lave, des torches à l'étroit ou du Nether sans préparation !</div>
+    </div>
+
+    <div class="ocard">
+      <h4>⚔ Valkyrie</h4>
+      <span class="odiff od-med">Intermédiaire</span>
+      <p>Guerrière divine nordique. Excellente au combat, bonus contre les morts-vivants. Nécessite le mod Icarus.</p>
+      <p class="pro">+ Bonus points contre boss morts-vivants<br>+ Capacités de combat divines<br>+ Ailes Icarus</p>
+      <p class="con">— Nécessite le mod Icarus installé<br>— Moins polyvalente que d'autres races</p>
+    </div>
+
+    <div class="ocard">
+      <h4>🌿 Wood Elf</h4>
+      <span class="odiff od-easy">Débutant</span>
+      <p>Elfe des forêts rapide et archer hors pair. Vit en harmonie avec la nature.</p>
+      <p class="pro">+ Flèches toujours plus mortelles<br>+ Invisibilité dans les buissons/feuillages<br>+ Tir de précision chargé (actif)<br>+ Légèrement plus rapide<br>+ Track les ennemis après les avoir frappés</p>
+      <p class="con">— Végétarien (ne peut pas manger de viande)<br>— Moins de vie et de dégâts en mêlée<br>— Armure lourde = ralentissement</p>
+      <div class="origin-tip">💡 Parfait pour un build archer. Très efficace avec le mod Iron's Spells (sorts à distance).</div>
+    </div>
+
+    <div class="ocard">
+      <h4>❄ Yeti</h4>
+      <span class="odiff od-easy">Débutant</span>
+      <p>Bête massive des neiges. Tank glacial. Taille : 203cm.</p>
+      <p class="pro">+ Enorme quantité de PV<br>+ Entomber les ennemis dans la glace (actif)<br>+ Plus rapide dans les biomes enneigés<br>+ Souffle glacial ralentit les ennemis proches<br>+ Immunité Slowness</p>
+      <p class="con">— Très vulnérable au feu<br>— Ralenti et PV réduits dans les déserts<br>— Grande taille (203cm)</p>
+    </div>
+
+  </div>
+
+  <div class="al gold" style="margin-top:16px;">
+    <p><strong>Changer de race :</strong> Craftez un <strong>Orb of Origin</strong> (recette dans JEI) ou récupérez-en un via les récompenses de quêtes (touche <strong>L</strong>). En l'utilisant, vous pouvez rechoisir une race comme au démarrage.</p>
   </div>
 </section>
 
@@ -563,7 +685,7 @@ footer span { color:var(--gold2); }
     </div>
     <div class="mcard eid">
       <h4>Eidolon: Repraised</h4>
-      <p>Magie sombre et rituelle. Réalisez des rituels avec du sang, des âmes et des symboles. Idéal pour Vampires et Nécromanciens. Sorts très puissants mais moralement douteux.</p>
+      <p>Magie sombre et rituelle. Réalisez des rituels avec du sang, des âmes et des symboles. Idéal pour les races morts-vivants (Revenant, Plague Victim) et les races démoniaques (Incubus). Sorts très puissants mais moralement douteux.</p>
       <span class="diff d-hard">Difficulté Difficile</span>
     </div>
     <div class="mcard wiz">
@@ -625,7 +747,11 @@ footer span { color:var(--gold2); }
     <div class="prog-node" style="border-color:#e04040;color:#f06060;">Ignis<br><small style="color:#c04040;font-size:.65rem;">Nether — Burning Arena</small></div>
   </div>
 
-  <div class="al gold" style="margin-top:16px;">
+  <div class="al red" style="margin-top:12px;">
+    <p><strong>⚠ Cursed Pyramid (Ancient Remnant) :</strong> La Cursed Pyramid est connue pour ne quasiment jamais spawner dans ce modpack. Si vous ne trouvez pas la structure, achetez le <strong>Ancient Remnant Spawn Egg</strong> au Quest Shop ou à la Cataclysmic Gate plutôt que de chercher pendant des heures.</p>
+  </div>
+
+  <div class="al gold" style="margin-top:12px;">
     <p><strong>Challenge Orbs :</strong> Ces objets craftés avec des matériaux end-game permettent de faire réapparaître un boss ou une structure déjà vaincue. Disponibles pour tous les boss Cataclysm, EEEAB's Mobs, Mowzie's Mobs, Dead King (Iron's Spellbooks), et When Dungeons Arise. Ne fonctionnent pas sur les chunks réclamés par MineColonies.</p>
   </div>
 </section>
@@ -649,8 +775,8 @@ footer span { color:var(--gold2); }
         <div class="boss-name">Netherite Monstrosity</div>
         <div class="boss-struct">Soul Forge — Nether (tous biomes)</div>
         <div class="boss-stats">
-          <span class="stat-pill hp">600 HP</span>
-          <span class="stat-pill armor">12 Armure</span>
+          <span class="stat-pill hp">500 HP</span>
+          <span class="stat-pill armor">10 Armure</span>
           <span class="stat-pill dmg">15+ dégâts</span>
           <span class="stat-pill phases">2 Phases</span>
         </div>
@@ -1437,23 +1563,26 @@ footer span { color:var(--gold2); }
       <div class="faq-a">
         Pour les <strong>débutants</strong>, les meilleures options sont :
         <br><br>
-        • <strong>Humain</strong> — Aucune faiblesse, bonus d'XP léger. Parfait pour apprendre le modpack sans contraintes.<br>
-        • <strong>Nain</strong> — Résistance aux dégâts et bonus de minage, idéal pour explorer les donjons souterrains.<br>
-        • <strong>Elfe</strong> — Vitesse et vision nocturne, bon pour l'exploration, mais évitez le Nether au début.<br><br>
-        <strong>À éviter pour commencer :</strong> Vampire (brûle au soleil, ne mange pas de nourriture normale), Pixie (très fragile, ne porte pas d'armure), Banshee (contraintes complexes).
+        • <strong>Dwarf (Nain)</strong> — Robuste, mine vite, vision nocturne. Juste éviter l'eau et mettre un casque en or le jour. Le meilleur choix pour commencer.<br>
+        • <strong>Wood Elf</strong> — Rapide et efficace à l'arc. Attention : végétarien uniquement.<br>
+        • <strong>Ogre</strong> — Énorme quantité de PV et dégâts à la hache. Lent mais très résistant.<br>
+        • <strong>Yeti</strong> — Tank solide avec gel des ennemis. Éviter le feu et les déserts.<br><br>
+        <strong>À éviter pour commencer :</strong> Pixie (22cm, ultra-fragile), Plague Victim (pas d'armure), Banshee (mécaniques très complexes), Siren (mort instantanée au feu).
       </div>
     </div>
 
     <div class="faq-item" data-cat="race">
-      <button class="faq-q"><span class="faq-tag tag-race">Race</span>Comment le Vampire survit-il au soleil ?<span class="faq-arrow">▼</span></button>
+      <button class="faq-q"><span class="faq-tag tag-race">Race</span>C'est quoi la race "Filline" ? Je la vois pas dans la liste.<span class="faq-arrow">▼</span></button>
       <div class="faq-a">
-        Le Vampire brûle en plein soleil. Pour jouer la journée, plusieurs solutions :
+        <strong>"Filline" = Alfiq</strong> — c'est le nom affiché en jeu en français/adaptation pour cette race féline. L'Alfiq est une espèce anthropomorphe de félins avec :
         <br><br>
-        • <strong>Restez à l'intérieur</strong> ou sous les arbres (l'ombre protège)<br>
-        • Portez un <strong>casque</strong> — même un casque en bois — pour bloquer le soleil<br>
-        • Le mod <strong>Eidolon</strong> propose des rituels pour résister à la lumière<br>
-        • Jouez <strong>la nuit</strong> — vous êtes quasiment invulnérable, c'est votre moment de puissance<br><br>
-        Pour vous nourrir : approchez-vous d'un mob passif ou hostile et utilisez votre capacité active (<code>G</code>) pour drainer du sang. Les villages sont une bonne source de "nourriture" nocturne.
+        • Griffes acérées (dégâts mains nues + grimpe aux murs)<br>
+        • Bond (Pounce) avec charge et dégâts bonus<br>
+        • Immunité aux dégâts de chute importants<br>
+        • Pickpocket sur les villageois<br>
+        • Bonus de vitesse au crépuscule et à l'aube<br><br>
+        <strong>Malus :</strong> moins efficace avec les outils/épées normaux, armure légère uniquement par défaut (une enchantement spécial permet les armures lourdes).
+        <div class="faq-tip">💡 La race Alfiq combine très bien avec un build mains nues ou Ars Nouveau (sorts de mêlée).</div>
       </div>
     </div>
 
